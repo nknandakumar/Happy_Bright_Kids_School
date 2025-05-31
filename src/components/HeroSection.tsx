@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -12,90 +12,109 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-nursery-pink via-nursery-teal to-nursery-purple">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-nursery-yellow rounded-full animate-float"></div>
-        <div className="absolute top-32 right-20 w-16 h-16 bg-nursery-orange rounded-full animate-bounce-gentle" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 bg-nursery-purple rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 right-10 w-18 h-18 bg-nursery-teal rounded-full animate-bounce-gentle" style={{ animationDelay: '1.5s' }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-left animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-fredoka font-bold text-white mb-6 leading-tight">
-              Happy Bright
-              <span className="block text-nursery-yellow">Kids School</span>
-            </h1>
-            <p className="text-2xl md:text-3xl font-fredoka font-medium text-white mb-4">
-              Play & Learn
-            </p>
-            <p className="text-lg text-white/90 mb-8 max-w-xl">
-              Nurturing young minds in Shivamogga with quality education, care, and joy. 
-              From Daycare to UKG, we provide a safe and loving environment for your child's growth.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                size="lg" 
-                className="bg-nursery-yellow text-gray-800 hover:bg-nursery-orange text-lg font-semibold px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                onClick={scrollToAdmission}
-              >
-                Enroll Now
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-nursery-pink text-lg font-semibold px-8 py-6 rounded-full shadow-lg transition-all duration-300"
-                onClick={scrollToContact}
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Contact Us
-              </Button>
+    <section className="relative min-h-screen bg-gray-50 overflow-hidden">
+      {/* Main Content */}
+      <div className="container mx-auto px-4 pt-20 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-edukids-dark leading-tight">
+                Putting your child's
+                <span className="block text-edukids-orange">Future</span>
+                <span className="block">in great motion</span>
+              </h1>
+              
+              <div className="flex items-center space-x-8 text-sm text-edukids-gray">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-edukids-teal rounded-full"></div>
+                  <span>No Credit Card</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-edukids-yellow rounded-full"></div>
+                  <span>All Age Kids</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-edukids-orange rounded-full"></div>
+                  <span>Easy For Teachers</span>
+                </div>
+              </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start">
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">📍 Shivamogga, Karnataka</span>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-                <span className="text-white font-semibold">📞 8050342056</span>
-              </div>
+            <Button 
+              size="lg" 
+              className="bg-edukids-orange hover:bg-edukids-orange/90 text-white text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={scrollToAdmission}
+            >
+              Start Learning
+            </Button>
+
+            <p className="text-edukids-gray text-lg max-w-md">
+              We just don't give our students only lecture but real life experience.
+            </p>
+
+            {/* Location */}
+            <div className="flex items-center space-x-2 text-edukids-gray">
+              <MapPin className="h-4 w-4" />
+              <span>Shivamogga, Karnataka | 📞 8050342056</span>
             </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative animate-scale-in" style={{ animationDelay: '0.3s' }}>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-              <img 
-                src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=600&h=600&fit=crop&crop=faces"
-                alt="Happy children at Happy Bright Kids School Shivamogga"
-                className="w-full h-[500px] object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          {/* Right Content - Children Images */}
+          <div className="relative animate-scale-in">
+            <div className="grid grid-cols-2 gap-4">
+              {/* Child 1 */}
+              <div className="relative">
+                <div className="bg-edukids-green/20 rounded-3xl p-6 h-80 flex items-end">
+                  <img 
+                    src="https://images.unsplash.com/photo-1612538498456-e861df91d4d6?w=300&h=400&fit=crop&crop=face"
+                    alt="Happy child at nursery"
+                    className="w-full h-full object-cover rounded-2xl"
+                    loading="eager"
+                  />
+                </div>
+                <div className="absolute -top-4 -left-4 bg-white rounded-xl p-3 shadow-lg">
+                  <div className="text-2xl">🎯</div>
+                </div>
+              </div>
+
+              {/* Child 2 */}
+              <div className="relative mt-12">
+                <div className="bg-edukids-yellow/20 rounded-3xl p-6 h-80 flex items-end">
+                  <img 
+                    src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300&h=400&fit=crop&crop=face"
+                    alt="Child learning and playing"
+                    className="w-full h-full object-cover rounded-2xl"
+                    loading="eager"
+                  />
+                </div>
+                <div className="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-lg">
+                  <div className="text-2xl">🎈</div>
+                </div>
+              </div>
             </div>
-            
-            {/* Floating Cards */}
-            <div className="absolute -top-4 -left-4 bg-white rounded-xl p-4 shadow-lg animate-bounce-gentle">
-              <div className="text-2xl">🎨</div>
-              <div className="text-sm font-semibold text-gray-700">Creative Learning</div>
-            </div>
-            
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg animate-float">
-              <div className="text-2xl">🌟</div>
-              <div className="text-sm font-semibold text-gray-700">4 Expert Teachers</div>
+
+            {/* Central Illustration */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-4 shadow-lg animate-bounce-gentle">
+              <div className="text-4xl">📚</div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        {/* Stats Section */}
+        <div className="grid md:grid-cols-3 gap-8 mt-16 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <div className="bg-edukids-dark text-white rounded-2xl p-6 text-center">
+            <div className="text-3xl font-bold">5+</div>
+            <div className="text-sm opacity-80">Years of Excellence</div>
+          </div>
+          <div className="bg-edukids-yellow text-edukids-dark rounded-2xl p-6 text-center">
+            <div className="text-3xl font-bold">12K+</div>
+            <div className="text-sm opacity-80">Happy Students</div>
+          </div>
+          <div className="bg-edukids-green text-white rounded-2xl p-6 text-center">
+            <div className="text-3xl font-bold">70+</div>
+            <div className="text-sm opacity-80">Academic Programs</div>
+          </div>
         </div>
       </div>
     </section>

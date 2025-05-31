@@ -91,7 +91,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
   }
 
   /* Smooth scrolling */
@@ -109,34 +113,37 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #FF6B6B;
+    background: #FF6B47;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff5252;
+    background: #ff5a3d;
   }
 }
 
 @layer utilities {
-  /* Custom background colors for nursery theme */
-  .bg-nursery-pink { background-color: #FF6B6B; }
-  .bg-nursery-teal { background-color: #4ECDC4; }
-  .bg-nursery-yellow { background-color: #FFE66D; }
-  .bg-nursery-purple { background-color: #A8E6CF; }
-  .bg-nursery-orange { background-color: #FFB347; }
+  /* Custom background colors for the new theme */
+  .bg-edukids-orange { background-color: #FF6B47; }
+  .bg-edukids-teal { background-color: #2DD4BF; }
+  .bg-edukids-yellow { background-color: #FDE047; }
+  .bg-edukids-green { background-color: #10B981; }
+  .bg-edukids-blue { background-color: #3B82F6; }
+  .bg-edukids-purple { background-color: #8B5CF6; }
+  .bg-edukids-pink { background-color: #EC4899; }
+  .bg-edukids-gray { background-color: #6B7280; }
+  .bg-edukids-dark { background-color: #1F2937; }
 
   /* Custom text colors */
-  .text-nursery-pink { color: #FF6B6B; }
-  .text-nursery-teal { color: #4ECDC4; }
-  .text-nursery-yellow { color: #FFE66D; }
-  .text-nursery-purple { color: #A8E6CF; }
-  .text-nursery-orange { color: #FFB347; }
-
-  /* Parallax effect */
-  .parallax {
-    transform: translateY(var(--parallax-offset, 0));
-  }
+  .text-edukids-orange { color: #FF6B47; }
+  .text-edukids-teal { color: #2DD4BF; }
+  .text-edukids-yellow { color: #FDE047; }
+  .text-edukids-green { color: #10B981; }
+  .text-edukids-blue { color: #3B82F6; }
+  .text-edukids-purple { color: #8B5CF6; }
+  .text-edukids-pink { color: #EC4899; }
+  .text-edukids-gray { color: #6B7280; }
+  .text-edukids-dark { color: #1F2937; }
 
   /* Animation delays */
   .delay-100 { animation-delay: 0.1s; }
@@ -156,12 +163,12 @@
   }
 
   /* Custom gradient backgrounds */
-  .gradient-nursery {
-    background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #FFE66D 100%);
+  .gradient-edukids {
+    background: linear-gradient(135deg, #FF6B47 0%, #2DD4BF 50%, #FDE047 100%);
   }
 
-  .gradient-nursery-soft {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 50%, rgba(255, 230, 109, 0.1) 100%);
+  .gradient-edukids-soft {
+    background: linear-gradient(135deg, rgba(255, 107, 71, 0.1) 0%, rgba(45, 212, 191, 0.1) 50%, rgba(253, 224, 71, 0.1) 100%);
   }
 }
 
@@ -188,7 +195,7 @@ img {
 /* Form improvements */
 input:focus, select:focus, textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+  box-shadow: 0 0 0 3px rgba(255, 107, 71, 0.1);
 }
 
 /* Mobile optimizations */

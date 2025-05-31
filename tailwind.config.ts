@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'fredoka': ['Fredoka', 'cursive'],
-				'sans': ['Open Sans', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -30,23 +30,27 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#FF6B6B',
+					DEFAULT: '#FF6B47',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: '#4ECDC4',
+					DEFAULT: '#2DD4BF',
 					foreground: '#FFFFFF'
 				},
 				accent: {
-					DEFAULT: '#FFE66D',
-					foreground: '#2D3748'
+					DEFAULT: '#FDE047',
+					foreground: '#1F2937'
 				},
-				nursery: {
-					pink: '#FF6B6B',
-					teal: '#4ECDC4',
-					yellow: '#FFE66D',
-					purple: '#A8E6CF',
-					orange: '#FFB347'
+				edukids: {
+					orange: '#FF6B47',
+					teal: '#2DD4BF',
+					yellow: '#FDE047',
+					green: '#10B981',
+					blue: '#3B82F6',
+					purple: '#8B5CF6',
+					pink: '#EC4899',
+					gray: '#6B7280',
+					dark: '#1F2937'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
