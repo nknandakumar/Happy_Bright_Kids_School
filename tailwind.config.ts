@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -42,6 +41,17 @@ export default {
 					foreground: '#1F2937'
 				},
 				edukids: {
+					orange: '#FF6B47',
+					teal: '#2DD4BF',
+					yellow: '#FDE047',
+					green: '#10B981',
+					blue: '#3B82F6',
+					purple: '#8B5CF6',
+					pink: '#EC4899',
+					gray: '#6B7280',
+					dark: '#1F2937'
+				},
+				nursery: {
 					orange: '#FF6B47',
 					teal: '#2DD4BF',
 					yellow: '#FDE047',
