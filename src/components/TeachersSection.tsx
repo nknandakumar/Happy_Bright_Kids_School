@@ -3,22 +3,22 @@ const TeachersSection = () => {
 		{
 			name: "Nethra",
 			role: "Head Master",
-			image: "https://randomuser.me/api/portraits/women/68.jpg",
+			image: "https://media.istockphoto.com/id/678420912/photo/portrait-of-an-indian-lady-teacher.jpg?s=2048x2048&w=is&k=20&c=DX5L4J6Et8RR5DCQ7LPU0vK64w_w_ERZd3T7QnHulm8=",
 		},
 		{
 			name: "Rahul Kumar",
 			role: "Math Teacher",
-			image: "https://randomuser.me/api/portraits/men/32.jpg",
+			image: "https://media.istockphoto.com/id/1375873615/photo/portrait-of-a-happy-woman-of-indian-ethnicity-wearing-sari-and-holding-a-book-in-hand.jpg?s=2048x2048&w=is&k=20&c=1VOzPCUPBX6tOh1LEGH2SzK3quKAbWmXBfbQnxDeHL8=",
 		},
 		{
 			name: "Priya Sharma",
 			role: "Science Teacher",
-			image: "https://randomuser.me/api/portraits/women/65.jpg",
+			image: "https://media.istockphoto.com/id/1329365212/photo/portrait-of-indian-teacher-standing-front-of-blackboard.jpg?s=612x612&w=0&k=20&c=k3XFIN7btGdWwkAGeSj36Vs6FUih2xEiEJ4gxF5m81I=",
 		},
 		{
 			name: "Anil Verma",
 			role: "English Teacher",
-			image: "https://randomuser.me/api/portraits/men/44.jpg",
+			image: "https://media.istockphoto.com/id/1331416361/photo/confident-smiling-indian-school-teacher-standing-in-front-of-the-blackboard-in-classroom.jpg?s=612x612&w=0&k=20&c=T0EewLnP4iMV7Truh6gsHrncdU3S7NtBuzWV_BSKtzE=",
 		},
 	];
 
@@ -70,114 +70,32 @@ const TeachersSection = () => {
 					</h2>
 				</div>
 
-				{/* Bento Grid */}
-				<div className="grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-6 h-[700px] md:h-[500px]">
-					{/* Large card */}
-					<div className="bg-white rounded-3xl p-8 flex flex-col items-center shadow-md row-span-2 md:col-span-2 md:row-span-2 justify-center">
-						<img
-							src={teachers[0].image}
-							alt={teachers[0].name}
-							className="w-56 h-72 object-cover mb-6"
-							loading="lazy"
-						/>
-						<h3 className="font-bold text-edukids-dark mb-2 text-3xl md:text-4xl text-center">
-							{teachers[0].name}
-						</h3>
-						<p className="font-sans text-edukids-gray text-xl md:text-2xl font-medium text-center">
-							{teachers[0].role}
-						</p>
-					</div>
-					{/* Tall card */}
-					<div className="bg-white rounded-3xl p-6 flex flex-col items-center shadow-md row-span-2 md:row-span-2 justify-center">
-						<img
-							src={teachers[1].image}
-							alt={teachers[1].name}
-							className="w-36 h-48 object-cover mb-4"
-							loading="lazy"
-						/>
-						<h3 className="font-bold text-edukids-dark mb-1 text-2xl md:text-3xl text-center">
-							{teachers[1].name}
-						</h3>
-						<p className="font-sans text-edukids-gray text-lg md:text-xl font-medium text-center">
-							{teachers[1].role}
-						</p>
-					</div>
-					{/* Wide card */}
-					<div className="bg-white rounded-3xl p-6 flex flex-col items-center shadow-md col-span-1 md:col-span-2 justify-center">
-						<img
-							src={teachers[2].image}
-							alt={teachers[2].name}
-							className="w-40 h-40 object-cover mb-4"
-							loading="lazy"
-						/>
-						<h3 className="font-bold text-edukids-dark mb-1 text-2xl md:text-3xl text-center">
-							{teachers[2].name}
-						</h3>
-						<p className="font-sans text-edukids-gray text-lg md:text-xl font-medium text-center">
-							{teachers[2].role}
-						</p>
-					</div>
-					{/* Small card */}
-					<div className="bg-white rounded-3xl p-6 flex flex-col items-center shadow-md justify-center">
-						<img
-							src={teachers[3].image}
-							alt={teachers[3].name}
-							className="w-32 h-32 object-cover mb-4"
-							loading="lazy"
-						/>
-						<h3 className="font-bold text-edukids-dark mb-1 text-xl md:text-2xl text-center">
-							{teachers[3].name}
-						</h3>
-						<p className="font-sans text-edukids-gray text-base md:text-lg font-medium text-center">
-							{teachers[3].role}
-						</p>
-					</div>
+				{/* Responsive Horizontal Cards */}
+				<div className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:pt-10 ">
+					{teachers.map((teacher, index) => (
+						<div
+							key={index}
+							className=" teacher-card rounded-3xl p-6 flex flex-col  items-start  h-auto md:h-56 justify-center gap-6 w-full"
+						>
+							<img
+								src={teacher.image}
+								alt={teacher.name}
+								className="w-42 h-42 md:w-100 md:h-100  object-cover  last:rounded-br-3xl  mb-4 md:mb-0"
+								loading="lazy"
+							/>
+							<div className="flex-1 text-left md:text-left">
+								<h3 className="font-bold text-edukids-dark mb-1 text-2xl md:text-3xl">
+									{teacher.name}
+								</h3>
+								<p className="font-sans text-edukids-gray text-lg md:text-xl font-medium">
+									{teacher.role}
+								</p>
+							</div>
+						</div>
+					))}
 				</div>
 
-				{/* Bottom Section */}
-				<div className="grid md:grid-cols-2 gap-8 mt-16">
-					{/* Left Card */}
-					<div className="bg-edukids-yellow rounded-3xl p-8 relative overflow-hidden">
-						<div className="relative z-10">
-							<h3 className="text-2xl font-poppins font-bold text-edukids-dark mb-4">
-								Confidence that builds a brighter future.
-							</h3>
-							<p className="text-edukids-gray mb-6">
-								Preparation is not just about learning the information, but
-								developing cognitive skills and critical thinking.
-							</p>
-							<button className="bg-edukids-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-edukids-dark/90 transition-colors">
-								Book Now →
-							</button>
-						</div>
-						{/* Decorative Elements */}
-						<div className="absolute top-4 right-4 text-4xl opacity-20">✏️</div>
-						<div className="absolute bottom-4 right-4 text-6xl opacity-10">
-							📐
-						</div>
-					</div>
-
-					{/* Right Card */}
-					<div className="bg-edukids-orange rounded-3xl p-8 relative overflow-hidden text-white">
-						<div className="relative z-10">
-							<h3 className="text-2xl font-poppins font-bold mb-4">
-								Helping kids to shoot their dreams.
-							</h3>
-							<p className="opacity-90 mb-6">
-								Creating future leaders and innovators through quality education
-								and guidance.
-							</p>
-							<button className="bg-white text-edukids-orange px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-								Learn More →
-							</button>
-						</div>
-						{/* Decorative Elements */}
-						<div className="absolute top-4 right-4 text-4xl opacity-20">🚀</div>
-						<div className="absolute bottom-4 right-4 text-6xl opacity-10">
-							⭐
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</section>
 	);

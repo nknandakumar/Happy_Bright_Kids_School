@@ -2,8 +2,8 @@ const AboutSection = () => {
 	return (
 		<section className="py-20 bg-white">
 			<div className="container mx-auto px-4">
-				<div className="grid lg:grid-cols-2 gap-16 items-center">
-					<div className="animate-fade-in-up">
+				<div className="grid lg:grid-cols-2 gap-16 justify-center">
+					<div className="animate-fade-in-up flex flex-col items-start justify-start ">
 						<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-dark mb-6">
 							About Happy Bright Kids School
 						</h2>
@@ -34,18 +34,6 @@ const AboutSection = () => {
 							</div>
 						</div>
 
-						<div className="grid grid-cols-2 gap-6">
-							<div className="text-center p-4 bg-edukids-pink/10 rounded-xl">
-								<div className="text-3xl font-bold text-edukids-pink">5+</div>
-								<div className="text-sm text-edukids-gray">
-									Years Experience
-								</div>
-							</div>
-							<div className="text-center p-4 bg-edukids-teal/10 rounded-xl">
-								<div className="text-3xl font-bold text-edukids-teal">4</div>
-								<div className="text-sm text-edukids-gray">Expert Teachers</div>
-							</div>
-						</div>
 					</div>
 
 					<div
@@ -53,7 +41,7 @@ const AboutSection = () => {
 						style={{ animationDelay: "0.2s" }}
 					>
 						<img
-							src="https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=600&h=600&fit=crop"
+							src="https://media.istockphoto.com/id/1151224308/photo/teachers-with-children-learning-at-preschool.jpg?s=2048x2048&w=is&k=20&c=3KinZJMC0pLCQAVU9RB0Jt2mDUDAoKLq-Rqw3c6WLSE="
 							alt="Happy children learning at our school"
 							className="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
 							loading="lazy"
