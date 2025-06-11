@@ -170,30 +170,7 @@ const ContactSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-nursery-yellow to-nursery-orange rounded-2xl p-8 text-white animate-fade-in-up">
-            <h3 className="text-2xl font-fredoka font-bold mb-4">
-              🌟 Ready to Visit Us?
-            </h3>
-            <p className="text-lg mb-6 opacity-90">
-              Schedule a visit to see our facilities and meet our wonderful teachers!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={handlePhoneClick}
-                className="bg-white text-nursery-orange px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-              >
-                📞 Call Now: 8050342056
-              </button>
-              <button 
-                onClick={() => document.getElementById('admission')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-nursery-orange transition-all duration-300"
-              >
-                📝 Apply Online
-              </button>
-            </div>
-          </div>
-        </div>
+  
       </div>
     </section>
   );

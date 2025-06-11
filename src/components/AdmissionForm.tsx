@@ -284,19 +284,7 @@ Please contact us for admission details!
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-nursery-teal rounded-full"></div>
-                      <span className="text-gray-700">Parent's ID proof</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-nursery-yellow rounded-full"></div>
-                      <span className="text-gray-700">Address proof</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-nursery-purple rounded-full"></div>
-                      <span className="text-gray-700">Medical certificate</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-nursery-orange rounded-full"></div>
-                      <span className="text-gray-700">Recent passport size photos</span>
+                      <span className="text-gray-700">Parent's Aadhaar Card	</span>
                     </div>
                   </div>
                 </CardContent>

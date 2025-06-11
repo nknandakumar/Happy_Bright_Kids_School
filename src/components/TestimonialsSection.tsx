@@ -90,11 +90,11 @@ const TestimonialsSection = () => {
               <div className="text-gray-600 font-semibold">Parent Satisfaction</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-nursery-teal mb-2">150+</div>
+              <div className="text-4xl font-bold text-nursery-teal mb-2">60+</div>
               <div className="text-gray-600 font-semibold">Happy Children</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-nursery-yellow mb-2">5+</div>
+              <div className="text-4xl font-bold text-nursery-yellow mb-2">2+</div>
               <div className="text-gray-600 font-semibold">Years of Excellence</div>
             </div>
             <div>
@@ -102,22 +102,6 @@ const TestimonialsSection = () => {
               <div className="text-gray-600 font-semibold">School Readiness</div>
             </div>
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-fredoka font-bold text-gray-800 mb-4">
-            Want to Share Your Experience?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            We'd love to hear from you! Contact us to share your Happy Bright Kids story.
-          </p>
-          <button 
-            className="bg-nursery-pink text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Get in Touch
-          </button>
         </div>
       </div>
     </section>
