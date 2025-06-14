@@ -196,7 +196,7 @@ const GallerySection = () => {
 							</button>
 							<div
 								ref={videosRefDesktop}
-								className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-10  custom-thin-scrollbar"
+								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
 								style={{ scrollBehavior: "smooth" }}
 							>
 								{videos.map((item, i) => GalleryCard(item, i))}
@@ -225,7 +225,7 @@ const GallerySection = () => {
 							</button>
 							<div
 								ref={imagesRefDesktop}
-								className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 custom-thin-scrollbar"
+								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
 								style={{ scrollBehavior: "smooth" }}
 							>
 								{images.map((item, i) => GalleryCard(item, i))}
@@ -252,7 +252,7 @@ const GallerySection = () => {
 							</button>
 							<div
 								ref={allRefDesktop}
-								className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 custom-thin-scrollbar"
+								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
 								style={{ scrollBehavior: "smooth" }}
 							>
 								{galleryItems.map((item, i) => GalleryCard(item, i))}
@@ -283,7 +283,7 @@ const GallerySection = () => {
 							</button>
 							<div
 								ref={videosRefMobile}
-								className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-10 custom-thin-scrollbar"
+								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
 								style={{ scrollBehavior: "smooth" }}
 							>
 								{videos.map((item, i) => GalleryCard(item, i))}
@@ -310,7 +310,7 @@ const GallerySection = () => {
 							</button>
 							<div
 								ref={imagesRefMobile}
-								className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-10 custom-thin-scrollbar"
+								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
 								style={{ scrollBehavior: "smooth" }}
 							>
 								{images.map((item, i) => GalleryCard(item, i))}
@@ -337,7 +337,7 @@ const GallerySection = () => {
 							</button>
 							<div
 								ref={allRefMobile}
-								className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-10 custom-thin-scrollbar"
+								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
 								style={{ scrollBehavior: "smooth" }}
 							>
 								{galleryItems.map((item, i) => GalleryCard(item, i))}
