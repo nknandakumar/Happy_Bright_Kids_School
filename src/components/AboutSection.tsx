@@ -1,6 +1,6 @@
 const AboutSection = () => {
 	return (
-		<section className="py-20 bg-white">
+		<section id="about" className="py-20 bg-white">
 			<div className="container mx-auto px-4">
 				<div className="grid lg:grid-cols-2 gap-16 justify-center">
 					<div className="animate-fade-in-up flex flex-col items-start justify-start ">
@@ -33,7 +33,6 @@ const AboutSection = () => {
 								</p>
 							</div>
 						</div>
-
 					</div>
 
 					<div

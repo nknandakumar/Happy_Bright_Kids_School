@@ -23,7 +23,7 @@ const TeachersSection = () => {
 	];
 
 	return (
-		<section className="py-20 bg-gray-50 relative overflow-hidden">
+		<section id="teachers" className="py-20 bg-gray-50 relative overflow-hidden">
 			{/* SVG Background */}
 			<div className="absolute inset-0 w-full h-full -z-10">
 				<svg

@@ -1,4 +1,4 @@
-
+import Navbar from "@/components/ui/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 //import WhyChooseUs from "@/components/WhyChooseUs";
@@ -11,20 +11,21 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <HeroSection />
-      <AboutSection />
-      {/**   <WhyChooseUs /> */}
-      <ProgramsSection />
-      <TeachersSection />
-      <GallerySection />
-      <TestimonialsSection />
-      <AdmissionForm />
-      <ContactSection />
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="min-h-screen">
+			<Navbar />
+			<HeroSection />
+			<AboutSection />
+			{/**   <WhyChooseUs /> */}
+			<ProgramsSection />
+			<TeachersSection />
+			<GallerySection />
+			<TestimonialsSection />
+			<AdmissionForm />
+			<ContactSection />
+			<Footer />
+		</div>
+	);
 };
 
 export default Index;

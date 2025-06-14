@@ -12,7 +12,10 @@ const HeroSection = () => {
 	};
 
 	return (
-		<div className="hero relative min-h-screen h-screen bg-gradient-to-r from-pink-50 to-yellow-50 overflow-hidden flex flex-col justify-between">
+		<div
+			id="home"
+			className="hero relative min-h-screen h-screen bg-gradient-to-r from-pink-50 to-yellow-50 overflow-hidden flex flex-col justify-between"
+		>
 			{/* Main Content */}
 			<div className="container mx-auto px-4 pt-20 pb-0 flex-1 flex flex-col items-center justify-center">
 				<div className="flex flex-col items-center justify-center h-full">
