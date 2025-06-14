@@ -229,6 +229,23 @@
 			rgba(253, 224, 71, 0.1) 100%
 		);
 	}
+
+	/* Custom scrollbar styles */
+	.custom-thin-scrollbar{
+		margin-top: 10px;
+		cursor: grab ;
+	}
+	.custom-thin-scrollbar::-webkit-scrollbar {
+		height: 6px;
+	
+	}
+	.custom-thin-scrollbar::-webkit-scrollbar-thumb {
+		background: #4da8da;
+		border-radius: 4px;
+	}
+	.custom-thin-scrollbar::-webkit-scrollbar-track {
+		background: #e5e7eb;
+	}
 }
 
 /* Loading animations */
@@ -318,4 +335,39 @@ textarea:focus {
 }
 .animate-float-medium {
 	animation: float-medium 4s ease-in-out infinite alternate;
+}
+
+.parent {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	gap: 8px;
+}
+
+.div1 {
+	grid-column: span 2 / span 2;
+	grid-row: span 3 / span 3;
+}
+
+.div2 {
+	grid-row: span 3 / span 3;
+	grid-column-start: 4;
+	grid-row-start: 1;
+}
+
+.div3 {
+	grid-row: span 3 / span 3;
+	grid-column-start: 3;
+	grid-row-start: 1;
+}
+
+.div4 {
+	grid-row: span 3 / span 3;
+	grid-row-start: 4;
+}
+
+.div6 {
+	grid-column: span 3 / span 3;
+	grid-row: span 3 / span 3;
+	grid-row-start: 4;
 }

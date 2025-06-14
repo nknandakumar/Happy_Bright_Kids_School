@@ -98,7 +98,7 @@ Please contact us for admission details!
 						{/* Form */}
 						<Card className="shadow-xl animate-scale-in">
 							<CardHeader className="bg-gradient-to-r from-nursery-pink to-nursery-teal text-white rounded-t-lg">
-								<CardTitle className="text-2xl font-fredoka text-center">
+								<CardTitle className="text-2xl text-black font-fredoka text-center">
 									Apply for Admission
 								</CardTitle>
 							</CardHeader>

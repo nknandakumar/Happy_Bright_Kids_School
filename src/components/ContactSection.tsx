@@ -146,7 +146,7 @@ const ContactSection = () => {
 					>
 						<Card className="shadow-lg overflow-hidden">
 							<CardContent className="p-0">
-								<div className="bg-gradient-to-r from-nursery-pink to-nursery-teal p-6 text-white">
+								<div className="bg-gradient-to-r from-nursery-pink to-nursery-teal p-6 text-black">
 									<h3 className="text-2xl font-fredoka font-bold mb-2">
 										Find Us on Map
 									</h3>
