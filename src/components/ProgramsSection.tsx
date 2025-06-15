@@ -47,22 +47,22 @@ const ProgramsSection = () => {
 		<section id="programs" className="py-20 bg-edukids-gray">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 animate-fade-in-up">
-					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
+					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-orange mb-6">
 						Our Programs
 					</h2>
-					<p className="text-xl text-edukids-blue max-w-2xl mx-auto">
+					<p className="text-xl text-gray-600 max-w-2xl mx-auto">
 						Discover our comprehensive early education programs designed for
 						your child's growth
 					</p>
 				</div>
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative ">
 					{programs.map((program, index) => (
 						<div
 							key={index}
-							className=" flex flex-col items-center justify-start rounded-3xl p-6 relative overflow-visible group transition-transform duration-300 hover:scale-105 hover:shadow-xl animate-fade-in-up min-h-[370px] "
+							className=" relative flex flex-col items-center justify-start rounded-3xl p-6  overflow-visible group transition-transform duration-300 hover:scale-105 hover:shadow-xl animate-fade-in-up min-h-[370px] "
 							style={{ animationDelay: `${index * 0.1}s` }}
 						>
-							<div className="flex flex-col items-center">
+							<div className="flex sticky flex-col items-center">
 								<div
 									className="relative flex items-center justify-center mb-6"
 								
