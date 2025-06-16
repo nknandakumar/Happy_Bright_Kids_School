@@ -61,11 +61,11 @@ const TeachersSection = () => {
 			</div>
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 animate-fade-in-up">
-					<p className="text-edukids-orange font-semibold mb-4 text-lg md:text-xl font-poppins">
+					<p className="text-edukids-blue font-semibold mb-4 text-lg md:text-xl font-poppins">
 						Meet Our Dedicated Teachers
 					</p>
 					<h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-edukids-dark mb-6 leading-tight">
-						Shaping the <span className="text-edukids-orange">future</span> of
+						Shaping the <span className="text-edukids-blue">future</span> of
 						kids
 					</h2>
 				</div>

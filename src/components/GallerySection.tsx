@@ -143,7 +143,7 @@ const GallerySection = () => {
 				<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
 					<div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
 						<Play
-							className="w-6 h-6 text-edukids-orange ml-1"
+							className="w-6 h-6 text-edukids-blue ml-1"
 							fill="currentColor"
 						/>
 					</div>
@@ -170,10 +170,10 @@ const GallerySection = () => {
 		<section id="gallery" className="py-20 bg-white">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 animate-fade-in-up">
-					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-dark mb-6">
+					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
 						School Gallery
 					</h2>
-					<p className="text-xl text-edukids-gray max-w-3xl mx-auto">
+					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
 						Experience our vibrant learning environment through photos and
 						videos
 					</p>

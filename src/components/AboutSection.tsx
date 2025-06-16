@@ -5,7 +5,7 @@ const AboutSection = () => {
 				<div className="grid lg:grid-cols-2 gap-16 justify-center">
 					<div className="animate-fade-in-up flex flex-col items-start justify-start ">
 						<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-dark mb-6">
-						 <span className="text-edukids-orange" >About</span> Happy Bright Kids School
+						 <span className="text-edukids-blue" >About</span> Happy Bright Kids School
 						</h2>
 						<p className="text-lg text-gray-600 mb-6 leading-relaxed">
 							Located in Shivamogga, Karnataka, we provide exceptional early

@@ -47,7 +47,7 @@ const ProgramsSection = () => {
 		<section id="programs" className="py-20 bg-edukids-gray">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 animate-fade-in-up">
-					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-orange mb-6">
+					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
 						Our Programs
 					</h2>
 					<p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -59,7 +59,7 @@ const ProgramsSection = () => {
 					{programs.map((program, index) => (
 						<div
 							key={index}
-							className=" relative flex flex-col items-center justify-start rounded-3xl p-6  overflow-visible group transition-transform duration-300 hover:scale-105 hover:shadow-xl animate-fade-in-up min-h-[370px] "
+							className=" relative flex flex-col items-center justify-start rounded-3xl p-6  overflow-visible group transition-transform duration-300  animate-fade-in-up min-h-[370px] "
 							style={{ animationDelay: `${index * 0.1}s` }}
 						>
 							<div className="flex sticky flex-col items-center">
@@ -86,14 +86,14 @@ const ProgramsSection = () => {
 				</div>
 				<div className="text-center mt-16">
 					<button
-						className="bg-edukids-yellow text-edukids-blue px-10 py-5 rounded-full font-bold text-2xl hover:bg-edukids-blue hover:text-edukids-yellow transition-colors duration-300 shadow-xl hover:shadow-2xl"
+						className="enroll-btn text-2xl"
 						onClick={() =>
 							document
 								.getElementById("admission")
 								?.scrollIntoView({ behavior: "smooth" })
 						}
 					>
-						Enroll Now →
+						<div><span>Enroll Now →</span></div>
 					</button>
 				</div>
 			</div>
