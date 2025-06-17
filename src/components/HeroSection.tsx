@@ -24,7 +24,7 @@ const HeroSection = () => {
 						<div className="space-y-4">
 							<h1 className="text-4xl  md:text-5xl lg:text-6xl font-merriweather font-bolder text-black leading-tight">
 								Welcome to <br />
-								<span className=" font-poppins text-4xl  md:text-5xl lg:text-7xl  font-extrabold uppercase text-edukids-blue">
+								<span className=" font-poppins text-4xl  md:text-5xl lg:text-7xl  font-extrabold uppercase  text-edukids-blue">
 									Happy Bright Kids 
 								</span>
 							</h1>
