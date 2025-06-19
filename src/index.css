@@ -239,7 +239,7 @@
 		height: 8px;
 	}
 	.custom-thin-scrollbar::-webkit-scrollbar-thumb {
-		background:  #fde047 ;
+		background:  gray ;
 		border-radius: 8px;
 		border: 2px solid #f5f5f5;
 	}

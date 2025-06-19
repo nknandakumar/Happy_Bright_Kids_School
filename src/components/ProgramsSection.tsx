@@ -4,7 +4,7 @@ const ProgramsSection = () => {
 	const programs = [
 		{
 			name: "Day Care",
-			age: "2 - 3 years",
+			age: "Under 3 years",
 			description: "",
 			image:
 				"https://anuchiaai.com/wp-content/uploads/2019/06/guide-to-choose-preschool-for-your-kids.jpg.webp",
@@ -12,7 +12,7 @@ const ProgramsSection = () => {
 		},
 		{
 			name: "Play Home",
-			age: "3 - 4 years",
+			age: "Under 3.5 years",
 			description: "",
 			image:
 				"https://holt-website-wpoffload.s3.us-west-2.amazonaws.com/wp-content/uploads/2019/01/HLT9891-e1548265670524.jpeg",
@@ -20,7 +20,7 @@ const ProgramsSection = () => {
 		},
 		{
 			name: "Nursery",
-			age: "4 - 5 years",
+			age: "3 - 4 years",
 			description: "",
 			image: "https://admin.ssrvm.org/uploads/learning_through_play_602ef0c40c.png",
 			bgColor: "bg-edukids-yellow",

@@ -84,7 +84,7 @@ const TestimonialsSection = () => {
 					transition={{ duration: 0.6 }}
 					className="text-center mb-16"
 				>
-					<h2 className="text-4xl md:text-5xl font-fredoka font-bold text-gray-800 mb-6">
+					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
 						What Parents Say
 					</h2>
 					<p className="text-xl text-gray-600 max-w-3xl mx-auto">

@@ -83,7 +83,7 @@ Please contact us for admission details!
 		>
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 animate-fade-in-up">
-					<h2 className="text-4xl md:text-5xl font-fredoka  text-edukids-blue font-bold text-edu mb-6">
+					<h2 className="text-4xl md:text-5xl font-poppins  text-edukids-blue font-bold text-edu mb-6">
 						Admission Enquiry
 					</h2>
 					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -97,7 +97,7 @@ Please contact us for admission details!
 						{/* Form */}
 						<Card className="shadow-xl animate-scale-in">
 							<CardHeader className="bg-gradient-to-r from-nursery-pink to-nursery-teal text-white rounded-t-lg">
-								<CardTitle className="text-2xl text-black font-fredoka text-center">
+								<CardTitle className="text-2xl text-black font-poppins text-center">
 									Enquiry
 								</CardTitle>
 							</CardHeader>
@@ -234,14 +234,14 @@ Please contact us for admission details!
 						>
 							<Card className="shadow-lg">
 								<CardHeader className="bg-gradient-to-r from-nursery-pink to-nursery-teal text-white rounded-t-lg">
-									<CardTitle className="text-2xl text-black font-fredoka text-center">
+									<CardTitle className="text-2xl text-black font-poppins text-center">
 										Contact Us
 									</CardTitle>
 								</CardHeader>
 								<CardContent className="p-8">
 									<div className="space-y-6">
 										<div>
-											<h3 className="text-xl font-fredoka font-bold text-gray-800 mb-4 flex items-center">
+											<h3 className="text-xl font-poppins font-bold text-gray-800 mb-4 flex items-center">
 												<svg
 													className="w-6 h-6 mr-2 text-gray-800"
 													fill="none"
@@ -270,7 +270,7 @@ Please contact us for admission details!
 										</div>
 
 										<div>
-											<h3 className="text-xl font-fredoka font-bold text-gray-800 mb-4 flex items-center">
+											<h3 className="text-xl font-poppins font-bold text-gray-800 mb-4 flex items-center">
 												<svg
 													className="w-6 h-6 mr-2 text-gray-800"
 													fill="currentColor"
@@ -288,7 +288,7 @@ Please contact us for admission details!
 												href="https://wa.me/918050342056"
 												target="_blank"
 												rel="noopener noreferrer"
-												className="inline-flex items-center justify-center w-full px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-all duration-300"
+												className="inline-flex items-center justify-center w-full px-6 py-3 bg-green-500 text-white text-poppins font-semibold rounded-lg hover:bg-green-600 transition-all duration-300"
 											>
 												<svg
 													className="w-5 h-5 mr-2"
@@ -306,16 +306,16 @@ Please contact us for admission details!
 
 							<Card className="shadow-lg ">
 								<CardContent className="p-8">
-									<h3 className="text-2xl flex items-center gap-2 font-fredoka font-bold text-gray-800 mb-6">
+									<h3 className="text-2xl flex items-center gap-2 font-poppins font-bold text-gray-800 mb-6">
 										<img src={addmission} alt="addmission process logo" className=" w-10  " /> Admission Process
 									</h3>
 									<div className="space-y-4">
 										<div className="flex items-start space-x-3">
-											<div className="w-6 h-6 bg-nursery-pink rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+											<div className="w-6 h-6  rounded-full flex items-center justify-center  text-sm font-bold flex-shrink-0 mt-1">
 												1
 											</div>
 											<div>
-												<h4 className="font-semibold text-gray-800">
+												<h4 className="font-semibold  font-poppins    text-gray-800">
 												Enquiry
 												</h4>
 												<p className="text-gray-600 text-sm">
@@ -324,11 +324,11 @@ Please contact us for admission details!
 											</div>
 										</div>
 										<div className="flex items-start space-x-3">
-											<div className="w-6 h-6 bg-nursery-teal rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+											<div className="w-6 h-6 bg-nursery-teal rounded-full flex items-center justify-center  text-sm font-bold flex-shrink-0 mt-1">
 												2
 											</div>
 											<div>
-												<h4 className="font-semibold text-gray-800">
+												<h4 className="font-semibold  font-poppins text-gray-800">
 													School Visit
 												</h4>
 												<p className="text-gray-600 text-sm">
@@ -337,11 +337,11 @@ Please contact us for admission details!
 											</div>
 										</div>
 										<div className="flex items-start space-x-3">
-											<div className="w-6 h-6 bg-nursery-yellow rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+											<div className="w-6 h-6 bg-nursery-yellow rounded-full flex items-center justify-center  text-sm font-bold flex-shrink-0 mt-1">
 												3
 											</div>
 											<div>
-												<h4 className="font-semibold text-gray-800">
+												<h4 className="font-semibold  font-poppins text-gray-800">
 													Documentation
 												</h4>
 												<p className="text-gray-600 text-sm">
@@ -350,11 +350,11 @@ Please contact us for admission details!
 											</div>
 										</div>
 										<div className="flex items-start space-x-3">
-											<div className="w-6 h-6 bg-nursery-purple rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+											<div className="w-6 h-6 bg-nursery-purple rounded-full flex items-center justify-center  text-sm font-bold flex-shrink-0 mt-1">
 												4
 											</div>
 											<div>
-												<h4 className="font-semibold text-gray-800">
+												<h4 className="font-semibold  font-poppins text-gray-800">
 													Welcome!
 												</h4>
 												<p className="text-gray-600 text-sm">
@@ -368,8 +368,8 @@ Please contact us for admission details!
 
 							<Card className="shadow-lg   ">
 								<CardContent className="p-8">
-									<h3 className="text-2xl flex items-start md:items-end gap-2 font-fredoka font-bold text-gray-800 mb-6">
-									<img src={doc} alt="documents logo"  className="-mt-3 w-20 md:w-[40px] " />  Required Documents
+									<h3 className="text-2xl flex items-start md:items-end gap-2 font-poppins font-bold text-gray-800 mb-6">
+									<img src={doc} alt="documents logo"  className="-mt-3 w-12 md:w-[40px] " />  Required  Documents
 									</h3>
 									<div className="space-y-3">
 										<div className="flex items-center space-x-3">
