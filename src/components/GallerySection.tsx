@@ -12,7 +12,7 @@ const GallerySection = () => {
 			thumbnail:
 				"https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=600&h=400&fit=crop",
 			alt: "Introduction to Happy Bright Kids School",
-			title: "School Introduction Video",
+			
 		},
 		{
 			type: "image" as const,
@@ -150,14 +150,7 @@ const GallerySection = () => {
 				</div>
 			)}
 			{/* Overlay */}
-			<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-				<div className="absolute bottom-4 left-4 text-white">
-					<div className="bg-edukids-orange px-3 py-1 rounded-full text-sm font-semibold mb-2 inline-block">
-						{item.type === "video" ? "Video" : "Photo"}
-					</div>
-					<p className="text-sm font-medium">{item.title}</p>
-				</div>
-			</div>
+			
 		</div>
 	);
 
@@ -183,9 +176,7 @@ const GallerySection = () => {
 				<div className="hidden lg:flex flex-col gap-2">
 					{/* Videos Carousel */}
 					<div>
-						<h3 className="text-2xl font-bold mb-4 text-edukids-blue">
-							Videos
-						</h3>
+						
 						<div className="relative">
 							<button
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
@@ -212,9 +203,7 @@ const GallerySection = () => {
 					</div>
 					{/* Photos Carousel */}
 					<div>
-						<h3 className="text-2xl font-bold mb-4 text-edukids-blue">
-							Photos
-						</h3>
+						
 						<div className="relative">
 							<button
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
@@ -241,7 +230,7 @@ const GallerySection = () => {
 					</div>
 					{/* Mixed Carousel */}
 					<div>
-						<h3 className="text-2xl font-bold mb-4 text-edukids-blue">All</h3>
+				
 						<div className="relative">
 							<button
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
@@ -272,7 +261,7 @@ const GallerySection = () => {
 				<div className="lg:hidden flex flex-col gap-10">
 					{/* Videos Carousel */}
 					<div>
-						<h3 className="text-xl font-bold mb-2 text-edukids-blue">Videos</h3>
+					
 						<div className="relative">
 							<button
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
@@ -299,7 +288,7 @@ const GallerySection = () => {
 					</div>
 					{/* Images Carousel */}
 					<div>
-						<h3 className="text-xl font-bold mb-2 text-edukids-blue">Photos</h3>
+						
 						<div className="relative">
 							<button
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
@@ -326,7 +315,7 @@ const GallerySection = () => {
 					</div>
 					{/* Mixed Carousel */}
 					<div>
-						<h3 className="text-xl font-bold mb-2 text-edukids-blue">All</h3>
+					
 						<div className="relative">
 							<button
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"

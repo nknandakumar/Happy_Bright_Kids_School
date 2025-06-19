@@ -1,29 +1,39 @@
 const TeachersSection = () => {
 	const teachers = [
 		{
-			name: "Nethra",
-			role: "Head Master",
-			image: "https://media.istockphoto.com/id/678420912/photo/portrait-of-an-indian-lady-teacher.jpg?s=2048x2048&w=is&k=20&c=DX5L4J6Et8RR5DCQ7LPU0vK64w_w_ERZd3T7QnHulm8=",
+			name: "Savitha S",
+			role: "Founder, Head Master",
+			image:
+				"https://media.istockphoto.com/id/678420912/photo/portrait-of-an-indian-lady-teacher.jpg?s=2048x2048&w=is&k=20&c=DX5L4J6Et8RR5DCQ7LPU0vK64w_w_ERZd3T7QnHulm8=",
+			isFounder: true,
 		},
 		{
-			name: "Rahul Kumar",
-			role: "Math Teacher",
-			image: "https://media.istockphoto.com/id/1375873615/photo/portrait-of-a-happy-woman-of-indian-ethnicity-wearing-sari-and-holding-a-book-in-hand.jpg?s=2048x2048&w=is&k=20&c=1VOzPCUPBX6tOh1LEGH2SzK3quKAbWmXBfbQnxDeHL8=",
+			name: "Rashmi HR",
+			role: "",
+			image:
+				"https://media.istockphoto.com/id/1375873615/photo/portrait-of-a-happy-woman-of-indian-ethnicity-wearing-sari-and-holding-a-book-in-hand.jpg?s=2048x2048&w=is&k=20&c=1VOzPCUPBX6tOh1LEGH2SzK3quKAbWmXBfbQnxDeHL8=",
+			isFounder: false,
 		},
 		{
-			name: "Priya Sharma",
-			role: "Science Teacher",
-			image: "https://media.istockphoto.com/id/1329365212/photo/portrait-of-indian-teacher-standing-front-of-blackboard.jpg?s=612x612&w=0&k=20&c=k3XFIN7btGdWwkAGeSj36Vs6FUih2xEiEJ4gxF5m81I=",
-		},
-		{
-			name: "Anil Verma",
-			role: "English Teacher",
-			image: "https://media.istockphoto.com/id/1331416361/photo/confident-smiling-indian-school-teacher-standing-in-front-of-the-blackboard-in-classroom.jpg?s=612x612&w=0&k=20&c=T0EewLnP4iMV7Truh6gsHrncdU3S7NtBuzWV_BSKtzE=",
+			name: "Nayana kumari G",
+			role: "",
+			image:
+				"https://media.istockphoto.com/id/1329365212/photo/portrait-of-indian-teacher-standing-front-of-blackboard.jpg?s=612x612&w=0&k=20&c=k3XFIN7btGdWwkAGeSj36Vs6FUih2xEiEJ4gxF5m81I=",
+			isFounder: false,
 		},
 	];
 
+	// Reorder for mobile: founder first, for desktop: founder in center
+	const getOrderedTeachers = () => {
+		// On mobile, founder first; on desktop, founder in center
+		return teachers;
+	};
+
 	return (
-		<section id="teachers" className="py-20 bg-gray-50 relative overflow-hidden">
+		<section
+			id="teachers"
+			className="py-20  bg-gray-50 relative overflow-hidden"
+		>
 			{/* SVG Background */}
 			<div className="absolute inset-0 w-full h-full -z-10">
 				<svg
@@ -60,7 +70,7 @@ const TeachersSection = () => {
 				</svg>
 			</div>
 			<div className="container mx-auto px-4">
-				<div className="text-center mb-16 animate-fade-in-up">
+				<div className="text-center mb-20 md:mb-32 animate-fade-in-up">
 					<p className="text-edukids-blue font-semibold mb-4 text-lg md:text-xl font-poppins">
 						Meet Our Dedicated Teachers
 					</p>
@@ -71,31 +81,40 @@ const TeachersSection = () => {
 				</div>
 
 				{/* Responsive Horizontal Cards */}
-				<div className="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:pt-10 ">
-					{teachers.map((teacher, index) => (
-						<div
-							key={index}
-							className=" teacher-card rounded-3xl p-6 flex flex-col  items-start  h-auto md:h-56 justify-center gap-6 w-full"
-						>
-							<img
-								src={teacher.image}
-								alt={teacher.name}
-								className="w-42 h-42 md:w-100 md:h-100  object-cover  last:rounded-br-3xl  mb-4 md:mb-0"
-								loading="lazy"
-							/>
-							<div className="flex-1 text-left md:text-left">
-								<h3 className="font-bold text-edukids-dark mb-1 text-2xl md:text-3xl">
-									{teacher.name}
-								</h3>
-								<p className="font-sans text-edukids-gray text-lg md:text-xl font-medium">
-									{teacher.role}
-								</p>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start justify-start  gap-8 md:pt-10 ">
+					{getOrderedTeachers().map((teacher, index) => {
+						// For large screens, set founder to center using order classes
+						let orderClass = "";
+						if (teacher.isFounder) {
+							orderClass = "lg:order-2";
+						} else if (index === 1) {
+							orderClass = "lg:order-1";
+						} else if (index === 2) {
+							orderClass = "lg:order-3";
+						}
+						return (
+							<div
+								key={index}
+								className={`teacher-card rounded-3xl p-6 flex flex-col items-start md:items-center h-auto md:h-56 justify-center gap-6 w-full ${orderClass}`}
+							>
+								<img
+									src={teacher.image}
+									alt={teacher.name}
+									className="w-42 h-42 md:w-100 md:h-100 object-cover last:rounded-br-3xl mb-4 md:mb-0"
+									loading="lazy"
+								/>
+								<div className="flex-1">
+									<h3 className="font-bold font-poppins text-edukids-dark mb-1 text-2xl md:text-3xl text-left md:text-center">
+										{teacher.name}
+									</h3>
+									<p className="font-sans text-edukids-gray text-lg md:text-xl font-medium min-h-[1.5em] text-left md:text-center">
+										{teacher.role ? teacher.role : "\u00A0"}
+									</p>
+								</div>
 							</div>
-						</div>
-					))}
+						);
+					})}
 				</div>
-
-				
 			</div>
 		</section>
 	);
