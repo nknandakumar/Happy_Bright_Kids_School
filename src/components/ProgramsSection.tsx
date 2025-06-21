@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const ProgramsSection = () => {
 	const programs = [
@@ -22,7 +23,8 @@ const ProgramsSection = () => {
 			name: "Nursery",
 			age: "3 - 4 years",
 			description: "",
-			image: "https://admin.ssrvm.org/uploads/learning_through_play_602ef0c40c.png",
+			image:
+				"https://media.istockphoto.com/id/589961490/photo/children-playing-with-colorful-blocks-building-a-block-tower.jpg?s=2048x2048&w=is&k=20&c=WR-WMt2OSWqaZLFaPHE717z8RGHBIcjQabQYiR0mIO8=",
 			bgColor: "bg-edukids-yellow",
 		},
 		{
@@ -37,40 +39,71 @@ const ProgramsSection = () => {
 			name: "UKG",
 			age: "5 - 6 years",
 			description: "",
-			image:
-				"https://www.bachpanglobal.com/img/Contact-mobile.webp",
+			image: "https://www.bachpanglobal.com/img/Contact-mobile.webp",
 			bgColor: "bg-edukids-teal",
 		},
 	];
 
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+	const containerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 100 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+			},
+		},
+	};
+
 	return (
 		<section id="programs" className="py-20 bg-edukids-gray">
 			<div className="container mx-auto px-4">
-				<div className="text-center mb-16 animate-fade-in-up">
-					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
+				<motion.div
+					ref={ref}
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}
+					variants={containerVariants}
+					className="text-center mb-16"
+				>
+					<motion.h2
+						variants={itemVariants}
+						className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6"
+					>
 						Our Programs
-					</h2>
-					<p className="text-xl text-gray-600 max-w-2xl mx-auto">
+					</motion.h2>
+					<motion.p
+						variants={itemVariants}
+						className="text-xl text-gray-600 max-w-2xl mx-auto"
+					>
 						Discover our comprehensive early education programs designed for
 						your child's growth
-					</p>
-				</div>
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative ">
+					</motion.p>
+				</motion.div>
+				<div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-10 relative">
 					{programs.map((program, index) => (
 						<div
 							key={index}
-							className=" relative flex flex-col items-center justify-start rounded-3xl p-6  overflow-visible group transition-transform duration-300  animate-fade-in-up min-h-[370px] "
+							className="sticky top-10 flex flex-col items-center justify-start rounded-3xl p-6 overflow-visible group transition-transform duration-300 animate-fade-in-up min-h-[370px]"
 							style={{ animationDelay: `${index * 0.1}s` }}
 						>
-							<div className="flex sticky flex-col items-center">
-								<div
-									className="relative flex items-center justify-center mb-6"
-								
-								>
+							<div className="flex flex-col items-center bg-[#F4F4F4]">
+								<div className="relative flex items-center justify-center mb-6">
 									<img
 										src={program.image}
 										alt={`Child in ${program.name} program`}
-										className="w-full h-full object-contain "
+										className="w-full h-full object-contain"
 										loading="lazy"
 									/>
 								</div>
@@ -93,7 +126,9 @@ const ProgramsSection = () => {
 								?.scrollIntoView({ behavior: "smooth" })
 						}
 					>
-						<div><span>Enroll Now →</span></div>
+						<div>
+							<span>Enroll Now →</span>
+						</div>
 					</button>
 				</div>
 			</div>
@@ -102,9 +137,3 @@ const ProgramsSection = () => {
 };
 
 export default ProgramsSection;
-
-// Add to your global CSS:
-// .animate-float-slow { animation: float-slow 6s ease-in-out infinite alternate; }
-// .animate-float-medium { animation: float-medium 4s ease-in-out infinite alternate; }
-// @keyframes float-slow { 0% { transform: translateY(0); } 100% { transform: translateY(-24px); } }
-// @keyframes float-medium { 0% { transform: translateY(0); } 100% { transform: translateY(-16px); } }
