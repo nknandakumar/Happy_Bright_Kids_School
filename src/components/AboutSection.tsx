@@ -6,23 +6,21 @@ const AboutSection = () => {
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	const containerVariants = {
-		hidden: { opacity: 0 },
+		hidden: {},
 		visible: {
-			opacity: 1,
 			transition: {
-				staggerChildren: 0.3,
-				duration: 0.5,
+				staggerChildren: 0.15,
 			},
 		},
 	};
 
 	const headingVariants = {
-		hidden: { opacity: 0, y: 40 },
-		visible: { opacity: 1, y: 0, transition: { duration: 0.9 } },
+		hidden: { opacity: 0, y: 100 },
+		visible: { opacity: 1, y: 0, transition: { duration: 1 } },
 	};
 	const infoVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: { opacity: 1, y: 0, transition: { duration: 0.9 } },
+		hidden: { opacity: 0, y: 100 },
+		visible: { opacity: 1, y: 0, transition: { duration: 1 } },
 	};
 	const iconVariants = {
 		hover: { scale: 1.15, rotate: 10 },
@@ -64,36 +62,33 @@ const AboutSection = () => {
 							childhood education in a nurturing environment.
 						</motion.p>
 
-						<motion.div className="space-y-4 mb-8" variants={infoVariants}>
-							<div className="flex items-start text-gray-600 space-x-3">
-								<motion.div
-									className="w-6 h-6 bg-edukids-pink rounded-full flex items-center justify-center flex-shrink-0 mt-1 cursor-pointer"
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<span className="text-white text-sm">✓</span>
-								</motion.div>
-								<p>
-									<strong>Mission:</strong> Holistic development through
-									play-based learning.
-								</p>
-							</div>
+						
 
-							<div className="flex items-start  space-x-3">
-								<motion.div
-									className="w-6 h-6 bg-edukids-teal rounded-full flex items-center justify-center flex-shrink-0 mt-1 cursor-pointer"
-									variants={iconVariants}
-									whileHover="hover"
-									whileTap="tap"
-								>
-									<span className="text-white text-sm">✓</span>
-								</motion.div>
-								<p>
-									<strong>Vision:</strong> Creating confident and curious
-									learners.
-								</p>
-							</div>
+						{/* Why Choose Us Section */}
+						<motion.div className=" w-full" variants={infoVariants}>
+							<motion.h3
+								className="text-2xl font-bold font-poppins text-black mb-3"
+								variants={headingVariants}
+							>
+								Why Choose us?
+							</motion.h3>
+							<motion.ul
+								className=" list-disc pl-6 space-y-2 text-gray-700 text-lg"
+								initial="hidden"
+								animate={isInView ? "visible" : "hidden"}
+								variants={containerVariants}
+							>
+								{[
+									"Individual Attention.",
+									"Result-driven coaching.",
+									"Flexible Timings.",
+									"Free study materials.",
+								].map((point, idx) => (
+									<motion.li key={idx} variants={infoVariants}>
+										{point}
+									</motion.li>
+								))}
+							</motion.ul>
 						</motion.div>
 					</motion.div>
 

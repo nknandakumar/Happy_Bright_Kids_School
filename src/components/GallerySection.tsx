@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import Marquee from "@/components/magicui/marquee";
 
 const GallerySection = () => {
 	const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
@@ -12,7 +14,6 @@ const GallerySection = () => {
 			thumbnail:
 				"https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=600&h=400&fit=crop",
 			alt: "Introduction to Happy Bright Kids School",
-			
 		},
 		{
 			type: "image" as const,
@@ -93,54 +94,46 @@ const GallerySection = () => {
 	const videos = galleryItems.filter((item) => item.type === "video");
 	const images = galleryItems.filter((item) => item.type === "image");
 
-	// Separate refs for desktop and mobile carousels
-	const videosRefDesktop = useRef<HTMLDivElement>(null);
-	const imagesRefDesktop = useRef<HTMLDivElement>(null);
-	const allRefDesktop = useRef<HTMLDivElement>(null);
-	const videosRefMobile = useRef<HTMLDivElement>(null);
-	const imagesRefMobile = useRef<HTMLDivElement>(null);
-	const allRefMobile = useRef<HTMLDivElement>(null);
+	const headingContainerRef = useRef(null);
+	const isInView = useInView(headingContainerRef, {
+		once: true,
+		margin: "-100px",
+	});
 
-	const scrollRow = (
-		ref: React.RefObject<HTMLDivElement>,
-		dir: "left" | "right"
-	) => {
-		if (ref.current) {
-			console.log("Current ref:", ref.current);
-			console.log(
-				"Scroll width:",
-				ref.current.scrollWidth,
-				"Client width:",
-				ref.current.clientWidth
-			);
-			const amount = dir === "left" ? -500 : 500;
-			ref.current.scrollBy({ left: amount, behavior: "smooth" });
-			console.log(
-				"Scrolled to:",
-				ref.current.scrollLeft,
-				"Expected scrollBy:",
-				amount
-			);
-		}
+	const containerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 100 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+			},
+		},
 	};
 
 	// Card component for reuse
-	const GalleryCard = (item: (typeof galleryItems)[0], index: number) => (
+	const GalleryCard = (item: (typeof galleryItems)[0]) => (
 		<div
-			key={index}
-			className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-scale-in cursor-pointer min-w-[260px] max-w-xs flex-shrink-0"
-			style={{ animationDelay: `${index * 0.1}s` }}
+			className="group/card relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer w-[280px] h-[220px] flex-shrink-0"
 			onClick={() => openMedia(item.src, item.type)}
 		>
 			<img
 				src={item.type === "video" ? item.thumbnail : item.src}
 				alt={item.alt}
-				className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+				className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-500"
 				loading="lazy"
 			/>
-			{/* Video Play Button */}
 			{item.type === "video" && (
-				<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors duration-300">
+				<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">
 					<div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
 						<Play
 							className="w-6 h-6 text-edukids-blue ml-1"
@@ -149,8 +142,6 @@ const GallerySection = () => {
 					</div>
 				</div>
 			)}
-			{/* Overlay */}
-			
 		</div>
 	);
 
@@ -161,184 +152,61 @@ const GallerySection = () => {
 
 	return (
 		<section id="gallery" className="py-20 bg-white">
-			<div className="container mx-auto px-4">
-				<div className="text-center mb-16 animate-fade-in-up">
-					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
+			<div className=" ">
+				<motion.div
+					ref={headingContainerRef}
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}
+					variants={containerVariants}
+					className="text-center mb-16"
+				>
+					<motion.h2
+						variants={itemVariants}
+						className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6"
+					>
 						School Gallery
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
+					</motion.h2>
+					<motion.p
+						variants={itemVariants}
+						className="text-xl text-gray-600 max-w-3xl mx-auto"
+					>
 						Experience our vibrant learning environment through photos and
 						videos
-					</p>
-				</div>
+					</motion.p>
+				</motion.div>
 
-				{/* Desktop: Three Carousels (Videos, Photos, Mixed) */}
-				<div className="hidden lg:flex flex-col gap-2">
-					{/* Videos Carousel */}
-					<div>
-						
-						<div className="relative">
-							<button
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(videosRefDesktop, "left")}
-								aria-label="Scroll videos left"
-							>
-								❮
-							</button>
-							<div
-								ref={videosRefDesktop}
-								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
-								style={{ scrollBehavior: "smooth" }}
-							>
-								{videos.map((item, i) => GalleryCard(item, i))}
-							</div>
-							<button
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(videosRefDesktop, "right")}
-								aria-label="Scroll videos right"
-							>
-								❯
-							</button>
-						</div>
+				<div className="flex flex-col gap-8">
+					{/* Videos Marquee */}
+					<div className="relative">
+						<Marquee pauseOnHover className="[--duration:40s]">
+							{videos.map((item, i) => (
+								<GalleryCard key={i} {...item} />
+							))}
+						</Marquee>
+						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
+						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
 					</div>
-					{/* Photos Carousel */}
-					<div>
-						
-						<div className="relative">
-							<button
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(imagesRefDesktop, "left")}
-								aria-label="Scroll photos left"
-							>
-								❮
-							</button>
-							<div
-								ref={imagesRefDesktop}
-								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
-								style={{ scrollBehavior: "smooth" }}
-							>
-								{images.map((item, i) => GalleryCard(item, i))}
-							</div>
-							<button
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(imagesRefDesktop, "right")}
-								aria-label="Scroll photos right"
-							>
-								❯
-							</button>
-						</div>
-					</div>
-					{/* Mixed Carousel */}
-					<div>
-				
-						<div className="relative">
-							<button
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(allRefDesktop, "left")}
-								aria-label="Scroll all left"
-							>
-								❮
-							</button>
-							<div
-								ref={allRefDesktop}
-								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
-								style={{ scrollBehavior: "smooth" }}
-							>
-								{galleryItems.map((item, i) => GalleryCard(item, i))}
-							</div>
-							<button
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(allRefDesktop, "right")}
-								aria-label="Scroll all right"
-							>
-								❯
-							</button>
-						</div>
-					</div>
-				</div>
 
-				{/* Mobile/Tablet Carousels */}
-				<div className="lg:hidden flex flex-col gap-10">
-					{/* Videos Carousel */}
-					<div>
-					
-						<div className="relative">
-							<button
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(videosRefMobile, "left")}
-								aria-label="Scroll videos left"
-							>
-								❮
-							</button>
-							<div
-								ref={videosRefMobile}
-								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
-								style={{ scrollBehavior: "smooth" }}
-							>
-								{videos.map((item, i) => GalleryCard(item, i))}
-							</div>
-							<button
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(videosRefMobile, "right")}
-								aria-label="Scroll videos right"
-							>
-								❯
-							</button>
-						</div>
+					{/* Photos Marquee */}
+					<div className="relative">
+						<Marquee reverse pauseOnHover className="[--duration:40s]">
+							{images.map((item, i) => (
+								<GalleryCard key={i} {...item} />
+							))}
+						</Marquee>
+						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
+						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
 					</div>
-					{/* Images Carousel */}
-					<div>
-						
-						<div className="relative">
-							<button
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(imagesRefMobile, "left")}
-								aria-label="Scroll photos left"
-							>
-								❮
-							</button>
-							<div
-								ref={imagesRefMobile}
-								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
-								style={{ scrollBehavior: "smooth" }}
-							>
-								{images.map((item, i) => GalleryCard(item, i))}
-							</div>
-							<button
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(imagesRefMobile, "right")}
-								aria-label="Scroll photos right"
-							>
-								❯
-							</button>
-						</div>
-					</div>
-					{/* Mixed Carousel */}
-					<div>
-					
-						<div className="relative">
-							<button
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(allRefMobile, "left")}
-								aria-label="Scroll all left"
-							>
-								❮
-							</button>
-							<div
-								ref={allRefMobile}
-								className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-edukids-blue scrollbar-track-gray-200 px-4 mb-12 custom-thin-scrollbar"
-								style={{ scrollBehavior: "smooth" }}
-							>
-								{galleryItems.map((item, i) => GalleryCard(item, i))}
-							</div>
-							<button
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-edukids-blue rounded-full w-8 h-8 flex items-center justify-center shadow hover:bg-edukids-blue hover:text-white transition-colors"
-								onClick={() => scrollRow(allRefMobile, "right")}
-								aria-label="Scroll all right"
-							>
-								❯
-							</button>
-						</div>
+
+					{/* Mixed Marquee */}
+					<div className="relative">
+						<Marquee pauseOnHover className="[--duration:40s]">
+							{galleryItems.map((item, i) => (
+								<GalleryCard key={i} {...item} />
+							))}
+						</Marquee>
+						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
+						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
 					</div>
 				</div>
 

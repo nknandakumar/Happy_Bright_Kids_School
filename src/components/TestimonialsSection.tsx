@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, Variants, useInView } from "framer-motion";
 import { Play } from "lucide-react";
-
+import CountUp from "./ui/CountUp";
 const TestimonialsSection = () => {
 	const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
@@ -72,26 +72,44 @@ const TestimonialsSection = () => {
 		setPlayingVideo(videoUrl);
 	};
 
+	const headingRef = useRef(null);
+	const isInView = useInView(headingRef, { once: true, margin: "-100px" });
+
+	const headingVariants = {
+		hidden: { opacity: 0.5, y: 30 },
+		visible: { opacity: 1, y: 0, transition: { duration: 1.2 } },
+	};
+
+	const subheadingVariants = {
+		hidden: { opacity: 0.5, y: 30 },
+		visible: { opacity: 1, y: 0, transition: { duration: 1.2, delay: 0.3 } },
+	};
+
 	return (
 		<section
 			id="testimonials"
 			className="py-20 bg-gradient-to-br from-blue-50 to-purple-50"
 		>
 			<div className="container mx-auto px-4">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					className="text-center mb-16"
-				>
-					<h2 className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6">
+				<div ref={headingRef} className="text-center mb-16">
+					<motion.h2
+						initial="hidden"
+						animate={isInView ? "visible" : "hidden"}
+						variants={headingVariants}
+						className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6"
+					>
 						What Parents Say
-					</h2>
-					<p className="text-xl text-gray-600 max-w-3xl mx-auto">
+					</motion.h2>
+					<motion.p
+						initial="hidden"
+						animate={isInView ? "visible" : "hidden"}
+						variants={subheadingVariants}
+						className="text-xl text-gray-600 max-w-3xl mx-auto"
+					>
 						Hear from our Happy Bright Kids family about their experiences with
 						our school
-					</p>
-				</motion.div>
+					</motion.p>
+				</div>
 
 				<motion.div
 					variants={containerVariants}
@@ -182,7 +200,15 @@ const TestimonialsSection = () => {
 					<div className="grid md:grid-cols-4 gap-8 text-center">
 						<div>
 							<div className="text-4xl font-bold text-nursery-pink mb-2">
-								98%
+								<CountUp
+									from={0}
+									to={98}
+									separator=","
+									direction="up"
+									duration={1}
+									className="count-up-text"
+								/>
+								%
 							</div>
 							<div className="text-gray-600 font-semibold">
 								Parent Satisfaction
@@ -190,13 +216,29 @@ const TestimonialsSection = () => {
 						</div>
 						<div>
 							<div className="text-4xl font-bold text-nursery-teal mb-2">
-								60+
+								<CountUp
+									from={0}
+									to={60}
+									separator=","
+									direction="up"
+									duration={1.5}
+									className="count-up-text"
+								/>
+								+
 							</div>
 							<div className="text-gray-600 font-semibold">Happy Children</div>
 						</div>
 						<div>
 							<div className="text-4xl font-bold text-nursery-yellow mb-2">
-								2+
+								<CountUp
+									from={0}
+									to={2}
+									separator=","
+									direction="up"
+									duration={2}
+									className="count-up-text"
+								/>
+								+
 							</div>
 							<div className="text-gray-600 font-semibold">
 								Years of Excellence
@@ -204,7 +246,15 @@ const TestimonialsSection = () => {
 						</div>
 						<div>
 							<div className="text-4xl font-bold text-nursery-purple mb-2">
-								100%
+								<CountUp
+									from={0}
+									to={100}
+									separator=","
+									direction="up"
+									duration={1.5}
+									className="count-up-text"
+								/>
+								%
 							</div>
 							<div className="text-gray-600 font-semibold">
 								School Readiness

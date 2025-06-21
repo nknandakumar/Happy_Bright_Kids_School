@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import toy1 from "/toys1.svg";
-import toy2 from "/toy2.svg";
 import toy3 from "/toy3.svg";
 const HeroSection = () => {
 	const scrollToContact = () => {

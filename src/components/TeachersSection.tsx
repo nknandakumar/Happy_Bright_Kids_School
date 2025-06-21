@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
 const TeachersSection = () => {
 	const teachers = [
 		{
@@ -27,6 +30,29 @@ const TeachersSection = () => {
 	const getOrderedTeachers = () => {
 		// On mobile, founder first; on desktop, founder in center
 		return teachers;
+	};
+
+	const ref = useRef(null);
+	const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+	const containerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 100 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1,
+			},
+		},
 	};
 
 	return (
@@ -70,15 +96,27 @@ const TeachersSection = () => {
 				</svg>
 			</div>
 			<div className="container mx-auto px-4">
-				<div className="text-center mb-20 md:mb-32 animate-fade-in-up">
-					<p className="text-edukids-blue font-semibold mb-4 text-lg md:text-xl font-poppins">
+				<motion.div
+					ref={ref}
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}
+					variants={containerVariants}
+					className="text-center mb-20 md:mb-32"
+				>
+					<motion.p
+						variants={itemVariants}
+						className="text-edukids-blue font-semibold mb-4 text-lg md:text-xl font-poppins"
+					>
 						Meet Our Dedicated Teachers
-					</p>
-					<h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-edukids-dark mb-6 leading-tight">
+					</motion.p>
+					<motion.h2
+						variants={itemVariants}
+						className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-edukids-dark mb-6 leading-tight"
+					>
 						Shaping the <span className="text-edukids-blue">future</span> of
 						kids
-					</h2>
-				</div>
+					</motion.h2>
+				</motion.div>
 
 				{/* Responsive Horizontal Cards */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start justify-start  gap-8 md:pt-10 ">
