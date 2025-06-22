@@ -27,17 +27,20 @@ const Index = () => {
 	return (
 		<div className="min-h-screen bg-white">
 			<Navbar />
-			<div ref={scrollContainerRef} className="relative h-[200vh]">
+			<div ref={scrollContainerRef} className="relative">
 				<HeroSection scale={scale} opacity={opacity} filter={filter} />
-				<div className="absolute top-[100vh] left-0 right-0">
-					<AboutSection />
+				{/* Sticky About + Stacking Programs */}
+				<div className="relative">
+					<div className="sticky top-0 z-10 bg-white shadow-sm  transition-all duration-300">
+						<AboutSection />
+					</div>
+					<div className="relative z-20">
+						<ProgramsSection />
+					</div>
 				</div>
 			</div>
 			{/**   <WhyChooseUs /> */}
 
-			<div className=" sticky">
-				<ProgramsSection />
-			</div>
 			<TeachersSection />
 			<GallerySection />
 			<TestimonialsSection />

@@ -162,13 +162,13 @@ const TeachersSection = () => {
 						variants={itemVariants}
 						className="text-edukids-blue font-semibold mb-4 text-lg md:text-xl font-poppins"
 					>
-						Meet Our Dedicated Teachers
+						Meet Our Dedicated  <span className="gradient-text" >Teachers</span> 
 					</motion.p>
 					<motion.h2
 						variants={itemVariants}
 						className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-edukids-dark mb-6 leading-tight"
 					>
-						Shaping the <span className="text-edukids-blue">future</span> of
+						Shaping the <span className="gradient-text">future</span> of
 						kids
 					</motion.h2>
 				</motion.div>

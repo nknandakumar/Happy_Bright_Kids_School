@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Play } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import Marquee from "@/components/magicui/marquee";
@@ -120,25 +120,47 @@ const GallerySection = () => {
 		},
 	};
 
+	const marqueeContainerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.35,
+			},
+		},
+	};
+
+	const marqueeItemVariants = {
+		hidden: { opacity: 0, y: 60 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				type: "spring" as const,
+				stiffness: 80,
+				damping: 18,
+			},
+		},
+	};
+
 	// Card component for reuse
 	const GalleryCard = (item: (typeof galleryItems)[0]) => (
 		<div
-			className="group/card relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer w-[280px] h-[220px] flex-shrink-0"
+			className="group/card relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer w-[280px] h-[220px] md:w-[340px] md:h-[260px] lg:w-[440px] lg:h-[300px] flex-shrink-0"
 			onClick={() => openMedia(item.src, item.type)}
 		>
 			<img
 				src={item.type === "video" ? item.thumbnail : item.src}
 				alt={item.alt}
-				className="w-full h-full object-cover group-hover/card:scale-110 transition-transform duration-500"
+				className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
 				loading="lazy"
 			/>
 			{item.type === "video" && (
 				<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">
-					<div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-						<Play
-							className="w-6 h-6 text-edukids-blue ml-1"
-							fill="currentColor"
-						/>
+					{/* Pulse animation behind play button */}
+					<span className="absolute w-12 h-12 rounded-full bg-white opacity-70 animate-ping"></span>
+					<div className="w-10 h-10 bg-gradient-to-tr from-red-200 via-[#b2def6] to-yellow-100 rounded-full flex items-center justify-center shadow-lg relative z-10">
+						<Play className="w-6 h-6  text-black ml-1" fill="currentColor" />
 					</div>
 				</div>
 			)}
@@ -162,7 +184,7 @@ const GallerySection = () => {
 				>
 					<motion.h2
 						variants={itemVariants}
-						className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6"
+						className="text-4xl md:text-5xl font-poppins font-bold gradient-text mb-6"
 					>
 						School Gallery
 					</motion.h2>
@@ -175,9 +197,14 @@ const GallerySection = () => {
 					</motion.p>
 				</motion.div>
 
-				<div className="flex flex-col gap-8">
+				<motion.div
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}
+					variants={marqueeContainerVariants}
+					className="flex flex-col gap-8"
+				>
 					{/* Videos Marquee */}
-					<div className="relative">
+					<motion.div variants={marqueeItemVariants} className="relative">
 						<Marquee pauseOnHover className="[--duration:40s]">
 							{videos.map((item, i) => (
 								<GalleryCard key={i} {...item} />
@@ -185,10 +212,10 @@ const GallerySection = () => {
 						</Marquee>
 						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
-					</div>
+					</motion.div>
 
 					{/* Photos Marquee */}
-					<div className="relative">
+					<motion.div variants={marqueeItemVariants} className="relative">
 						<Marquee reverse pauseOnHover className="[--duration:40s]">
 							{images.map((item, i) => (
 								<GalleryCard key={i} {...item} />
@@ -196,10 +223,10 @@ const GallerySection = () => {
 						</Marquee>
 						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
-					</div>
+					</motion.div>
 
 					{/* Mixed Marquee */}
-					<div className="relative">
+					<motion.div variants={marqueeItemVariants} className="relative">
 						<Marquee pauseOnHover className="[--duration:40s]">
 							{galleryItems.map((item, i) => (
 								<GalleryCard key={i} {...item} />
@@ -207,8 +234,8 @@ const GallerySection = () => {
 						</Marquee>
 						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
-					</div>
-				</div>
+					</motion.div>
+				</motion.div>
 
 				{/* Modal for enlarged media */}
 				{selectedMedia && (

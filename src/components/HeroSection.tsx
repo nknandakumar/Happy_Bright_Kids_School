@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion, MotionValue } from "framer-motion";
 import toy1 from "/toys1.svg";
 import toy3 from "/toy3.svg";
+import { SparklesText } from "./magicui/sparkles-text";
 
 interface HeroSectionProps {
 	scale: MotionValue<number>;
@@ -94,7 +95,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 			scale: 1,
 			transition: {
 				duration: 0.6,
-				delay: 1.9,
+				delay: 1.2,
 			},
 		},
 	};
@@ -105,7 +106,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 			scale: 1,
 			transition: {
 				duration: 0.6,
-				delay: 2.2,
+				delay: 1.5,
 			},
 		},
 	};
@@ -129,7 +130,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 			scale: 1,
 			transition: {
 				duration: 0.6,
-				delay: 2.9,
+				delay: 1.8,
 			},
 		},
 	};
@@ -141,7 +142,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 			scale: 1,
 			transition: {
 				duration: 0.6,
-				delay: 3.1,
+				delay: 2.1,
 			},
 		},
 	};
@@ -226,16 +227,17 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 						<div className="space-y-8 text-center max-w-3xl">
 							<div className="space-y-4">
 								{/* Main Heading - "Welcome to" from top, "Happy Bright Kids" from bottom */}
-								<h1 className="text-4xl md:text-5xl lg:text-6xl font-merriweather font-bolder text-black leading-tight">
+								<h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bolder text-black leading-tight">
 									<motion.span variants={welcomeVariants} className="block">
 										Welcome to
 									</motion.span>
 
 									<motion.span
 										variants={titleVariants}
-										className="font-poppins  mt-4 text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase text-edukids-blue block"
+										className="font-poppins  mt-4 text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase bg-gradient-to-tr from-red-200 via-[#4DA8DA] to-yellow-100 bg-clip-text text-transparent    block"
 									>
-										Happy Bright Kids
+										<SparklesText>Happy Bright Kids</SparklesText>
+								
 									</motion.span>
 								</h1>
 

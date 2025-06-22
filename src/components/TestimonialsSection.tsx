@@ -1,89 +1,70 @@
-import { useState, useRef } from "react";
-import { motion, Variants, useInView } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Play } from "lucide-react";
 import CountUp from "./ui/CountUp";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+
+const testimonials = [
+	{
+		name: "Pavithra ",
+		role: "Mother of Maharshi dev",
+		rating: 5,
+		videoThumbnail:
+			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750588612/FeedbackThumbnail1_hj3i6y.png",
+		videoUrl:
+			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1749900227/feedback1_cy8qdn.mp4",
+	},
+	{
+		name: "Anjali",
+		role: "Mother of Artha",
+		rating: 5,
+		videoThumbnail:
+			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750588611/FeedbackThumbnail2_njmmet.png",
+		videoUrl:
+			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750587161/feedback2.mp4",
+	},
+	{
+		name: "Preethi Shenoy",
+		role: "Mother of Twins (Nursery)",
+		rating: 4,
+		videoThumbnail:
+			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750588611/FeedbackThumbnail2_njmmet.png",
+		videoUrl:
+			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750587162/feedback3.mp4",
+	},
+];
+
 const TestimonialsSection = () => {
-	const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+	const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+	const [swiperRef, setSwiperRef] = useState<any>(null);
+	const [current, setCurrent] = useState(0);
 
-	const testimonials = [
-		{
-			type: "video",
-			name: "Anita Reddy",
-			role: "Mother of Arjun (LKG)",
-			content:
-				"Happy Bright Kids School has been a blessing for our family. The teachers are so caring and patient with the children. My son Arjun loves going to school every day and has learned so much in just a few months!",
-			rating: 5,
-			image:
-				"https://images.unsplash.com/photo-1494790108755-2616b612b977?w=80&h=80&fit=crop&crop=face",
-			videoThumbnail:
-				"https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=225&fit=crop",
-			videoUrl:
-				"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1749900227/feedback1_cy8qdn.mp4",
-		},
-		{
-			type: "video",
-			name: "Rajesh Kumar",
-			role: "Father of Sneha (UKG)",
-			content:
-				"The quality of education and care at Happy Bright Kids is exceptional. Our daughter Sneha has developed excellent social skills and academic foundation. The location in Shivamogga is perfect for us. Highly recommended!",
-			rating: 5,
-			image:
-				"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
-			videoThumbnail:
-				"https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=225&fit=crop",
-			videoUrl:
-				"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1749900227/feedback2_cy8qdn.mp4",
-		},
-		{
-			type: "text",
-			name: "Preethi Shenoy",
-			role: "Mother of Twins (Nursery)",
-			content:
-				"Finding a good nursery school in Shivamogga was challenging until we found Happy Bright Kids. The individual attention given to each child is remarkable. Both my twins are thriving here and love their teachers dearly.",
-			rating: 5,
-			image:
-				"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
-		},
-	];
-
-	const containerVariants: Variants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.2,
-			},
-		},
+	// Responsive slides per view
+	const getSlidesPerView = () => {
+		if (typeof window !== "undefined") {
+			if (window.innerWidth >= 1024) return 3;
+			if (window.innerWidth >= 768) return 2;
+		}
+		return 1;
 	};
+	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
+	React.useEffect(() => {
+		const handleResize = () => setSlidesPerView(getSlidesPerView());
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
-	const itemVariants: Variants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.5,
-				ease: [0.4, 0, 0.2, 1],
-			},
-		},
-	};
+	const goLeft = () => swiperRef && swiperRef.slidePrev();
+	const goRight = () => swiperRef && swiperRef.slideNext();
 
-	const handleVideoClick = (videoUrl: string) => {
-		setPlayingVideo(videoUrl);
-	};
+	const onSlideChange = (swiper: { activeIndex: number }) =>
+		setCurrent(swiper.activeIndex);
+	const maxIndex = testimonials.length - slidesPerView;
 
 	const headingRef = useRef(null);
 	const isInView = useInView(headingRef, { once: true, margin: "-100px" });
-
-	const headingVariants = {
-		hidden: { opacity: 0.5, y: 30 },
-		visible: { opacity: 1, y: 0, transition: { duration: 1.2 } },
-	};
-
-	const subheadingVariants = {
-		hidden: { opacity: 0.5, y: 30 },
-		visible: { opacity: 1, y: 0, transition: { duration: 1.2, delay: 0.3 } },
-	};
 
 	return (
 		<section
@@ -95,100 +76,142 @@ const TestimonialsSection = () => {
 					<motion.h2
 						initial="hidden"
 						animate={isInView ? "visible" : "hidden"}
-						variants={headingVariants}
-						className="text-4xl md:text-5xl font-poppins font-bold text-edukids-blue mb-6"
+						className="text-4xl md:text-5xl font-poppins font-bold gradient-text mb-6"
 					>
 						What Parents Say
 					</motion.h2>
 					<motion.p
 						initial="hidden"
 						animate={isInView ? "visible" : "hidden"}
-						variants={subheadingVariants}
-						className="text-xl text-gray-600 max-w-3xl mx-auto"
+						className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto "
 					>
 						Hear from our Happy Bright Kids family about their experiences with
 						our school
 					</motion.p>
 				</div>
 
-				<motion.div
-					variants={containerVariants}
-					initial="hidden"
-					animate="visible"
-					className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-				>
-					{testimonials.map((testimonial, index) => (
-						<motion.div
-							key={index}
-							variants={itemVariants}
-							className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+				{/* Carousel */}
+				<div className="relative flex flex-col items-center justify-center">
+					<div className="w-full flex items-center justify-center">
+						<button
+							onClick={goLeft}
+							disabled={current === 0}
+							className="absolute left-0 z-10 bg-edukids-blue text-white rounded-full shadow-lg p-3 md:p-4 lg:p-5 transition-all duration-200 hover:bg-edukids-dark focus:outline-none focus:ring-2 focus:ring-edukids-blue disabled:opacity-30 disabled:cursor-not-allowed"
+							aria-label="Previous"
 						>
-							{testimonial.type === "video" ? (
-								<>
-									<div className="relative  overflow-hidden aspect-video">
-										{playingVideo === testimonial.videoUrl ? (
-											<video
-												className="w-full h-full object-cover"
-												controls
-												autoPlay
-												src={testimonial.videoUrl}
-												onEnded={() => setPlayingVideo(null)}
-											>
-												Your browser does not support the video tag.
-											</video>
-										) : (
-											<div
-												className="group relative rounded-2xl cursor-pointer h-full"
-												onClick={() => handleVideoClick(testimonial.videoUrl)}
-											>
-												<img
-													src={testimonial.videoThumbnail}
-													alt={`${testimonial.name}'s testimonial`}
-													className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-												/>
-												<div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300">
-													<div className="absolute inset-0 flex items-center justify-center">
-														<div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-sm">
+							<svg width="32" height="32" fill="none" viewBox="0 0 24 24">
+								<path
+									d="M15 19l-7-7 7-7"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
+							</svg>
+						</button>
+						<Swiper
+							onSwiper={setSwiperRef}
+							onSlideChange={onSlideChange}
+							slidesPerView={slidesPerView}
+							spaceBetween={24}
+							className="flex w-full justify-center gap-6 overflow-hidden"
+							style={{ width: "100%" }}
+							navigation={false}
+							allowTouchMove={true}
+						>
+							{testimonials.map((testimonial, index) => (
+								<SwiperSlide
+									key={index}
+									style={{ display: "flex", justifyContent: "center" }}
+								>
+									<div
+										className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col flex-shrink-0 mx-4 w-[90vw] max-w-xs md:max-w-sm lg:max-w-md"
+										style={{ minWidth: "320px", maxWidth: "400px" }}
+									>
+										{/* Thumbnail with 14:8 aspect ratio */}
+										<div className="w-full aspect-[14/8] flex-shrink-0 relative">
+											{playingIndex === index ? (
+												<video
+													className="w-full h-full object-cover rounded-b-none"
+													controls
+													autoPlay
+													src={testimonial.videoUrl}
+													onEnded={() => setPlayingIndex(null)}
+												>
+													Your browser does not support the video tag.
+												</video>
+											) : (
+												<div
+													className="group relative rounded-t-2xl cursor-pointer overflow-hidden w-full h-full"
+													onClick={() => setPlayingIndex(index)}
+												>
+													<img
+														src={testimonial.videoThumbnail}
+														alt={`${testimonial.name}'s testimonial`}
+														className="w-full h-full object-cover rounded-t-2xl rounded-b-none transition-transform duration-500 group-hover:scale-110"
+														style={{ objectPosition: "center" }}
+													/>
+													<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">
+														{/* Pulse animation behind play button */}
+														<span className="absolute w-12 h-12 rounded-full bg-white opacity-70 animate-ping"></span>
+														<div className="w-10 h-10 bg-gradient-to-tr from-red-200 via-[#b2def6] to-yellow-100 rounded-full flex items-center justify-center shadow-lg relative z-10">
 															<Play
-																className="w-5 h-5 text-nursery-pink ml-1"
+																className="w-6 h-6  text-black ml-1"
 																fill="currentColor"
 															/>
 														</div>
 													</div>
 												</div>
+											)}
+										</div>
+										{/* Card content below video */}
+										<div className="flex-1 flex flex-col justify-between p-6">
+											<div className="pt-3 border-t border-gray-50">
+												<h4 className="font-bold font-poppins text-2xl md:text-3xl gr-text">
+													{testimonial.name}
+												</h4>
+												<p className="text-lg md:text-xl text-gray-500 font-semibold">
+													{testimonial.role}
+												</p>
 											</div>
-										)}
+										</div>
 									</div>
-									<div className="p-4 border-t border-gray-50">
-										<h4 className="font-medium text-gray-800">
-											{testimonial.name}
-										</h4>
-										<p className="text-sm text-gray-500">{testimonial.role}</p>
-									</div>
-								</>
-							) : (
-								<div className="p-6">
-									<p className="text-gray-600 mb-4 leading-relaxed">
-										{testimonial.content}
-									</p>
-									<div className="flex space-x-1 mb-3">
-										{[...Array(testimonial.rating)].map((_, i) => (
-											<span key={i} className="text-nursery-yellow text-sm">
-												⭐
-											</span>
-										))}
-									</div>
-									<div className="pt-3 border-t border-gray-50">
-										<h4 className="font-medium text-gray-800">
-											{testimonial.name}
-										</h4>
-										<p className="text-sm text-gray-500">{testimonial.role}</p>
-									</div>
-								</div>
-							)}
-						</motion.div>
-					))}
-				</motion.div>
+								</SwiperSlide>
+							))}
+						</Swiper>
+						<button
+							onClick={goRight}
+							disabled={current >= maxIndex}
+							className="absolute right-0 z-10 bg-edukids-blue text-white rounded-full shadow-lg p-3 md:p-4 lg:p-5 transition-all duration-200 hover:bg-edukids-dark focus:outline-none focus:ring-2 focus:ring-edukids-blue disabled:opacity-30 disabled:cursor-not-allowed"
+							aria-label="Next"
+						>
+							<svg width="32" height="32" fill="none" viewBox="0 0 24 24">
+								<path
+									d="M9 5l7 7-7 7"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
+							</svg>
+						</button>
+					</div>
+					{/* Custom scrollbar below carousel */}
+					<div className="flex justify-center items-center mt-4 gap-2">
+						{Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+							<button
+								key={idx}
+								onClick={() => swiperRef && swiperRef.slideTo(idx)}
+								className={`h-2 w-8 rounded-full transition-all duration-200 ${
+									current === idx
+										? "bg-edukids-blue"
+										: "bg-gray-300 hover:bg-edukids-blue/60"
+								}`}
+								aria-label={`Go to slide ${idx + 1}`}
+							/>
+						))}
+					</div>
+				</div>
 
 				{/* Stats Section */}
 				<motion.div

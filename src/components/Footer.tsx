@@ -1,6 +1,6 @@
 import { Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import { SparklesText } from "./magicui/sparkles-text";
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
@@ -21,11 +21,11 @@ const Footer = () => {
 		<footer className="bg-gradient-to-br from-gray-800 to-gray-900 text-white">
 			{/* Main Footer Content */}
 			<div className="container mx-auto px-4 py-16">
-				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-12">
 					{/* School Info */}
 					<div className="lg:col-span-2">
-						<h3 className="text-3xl font-poppins uppercase font-bold text-nursery-yellow mb-4">
-							Happy Bright Kids
+						<h3 className="text-3xl font-poppins uppercase font-bold gradient-text mb-4">
+							 <SparklesText>Happy Bright Kids</SparklesText>
 						</h3>
 						<p className="text-gray-300 mb-6 leading-relaxed">
 							Nurturing young minds in Shivamogga with quality early childhood
@@ -71,8 +71,9 @@ const Footer = () => {
 						</div>
 					</div>
 
-					{/* Quick Links */}
-					<div>
+				<div className="flex gap-20">
+						{/* Quick Links */}
+						<div>
 						<h4 className="text-xl font-poppins font-bold text-nursery-teal mb-6">
 							Quick Links
 						</h4>
@@ -124,23 +125,23 @@ const Footer = () => {
 						<div className="space-y-3">
 							<div className="flex items-center space-x-2">
 								<span className="text-nursery-pink">🍼</span>
-								<span className="text-gray-300">Daycare (6m - 3y)</span>
+								<span className="text-gray-300">Daycare</span>
 							</div>
 							<div className="flex items-center space-x-2">
 								<span className="text-nursery-teal">🎈</span>
-								<span className="text-gray-300">Playhome (2 - 3y)</span>
+								<span className="text-gray-300">Playhome</span>
 							</div>
 							<div className="flex items-center space-x-2">
 								<span className="text-nursery-yellow">🎨</span>
-								<span className="text-gray-300">Nursery (3 - 4y)</span>
+								<span className="text-gray-300">Nursery</span>
 							</div>
 							<div className="flex items-center space-x-2">
 								<span className="text-nursery-purple">📚</span>
-								<span className="text-gray-300">LKG (4 - 5y)</span>
+								<span className="text-gray-300">LKG</span>
 							</div>
 							<div className="flex items-center space-x-2">
 								<span className="text-nursery-orange">🎓</span>
-								<span className="text-gray-300">UKG (5 - 6y)</span>
+								<span className="text-gray-300">UKG</span>
 							</div>
 						</div>
 
@@ -157,38 +158,31 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
+				</div>
 			</div>
 
 			{/* Bottom Footer */}
-			<div className="border-t border-gray-700">
+			<div className=" border-gray-700">
 				<div className="container mx-auto px-4 py-6">
-					<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-						<div className="text-center md:text-left">
-							<p className="text-gray-400">
-								© {currentYear} Happy Bright Kids School, Shivamogga. All rights
-								reserved.
-							</p>
-							<p className="text-gray-500 text-sm mt-1">
-								Quality Early Childhood Education in Karnataka
+					<div className="flex  items-center justify-center">
+						<div className="text-center  md:text-left">
+							<p className="text-gray-400 text-center">
+								© {currentYear} Happy Bright Kids. All rights reserved.
 							</p>
 						</div>
-
-						<div className="text-center md:text-right">
-							<p className="text-gray-400 text-sm">
-								Designed & Developed by{" "}
-								<span className="text-nursery-yellow font-semibold">
-									Nk Web Studio
-								</span>
-							</p>
-							<div className="flex justify-center md:justify-end space-x-4 mt-2">
-								<span className="text-xs text-gray-500">SEO Optimized</span>
-								<span className="text-xs text-gray-500">Mobile Responsive</span>
-								<span className="text-xs text-gray-500">Fast Loading</span>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
+
+			<div className="border-t border-gray-700">
+				<div className="container mx-auto px-4 py-6">
+				<p className="text-center text-gray-400">Design & Developed by <a href="" className=" text-gray-50">N Studio</a></p>
+				</div>
+				
+				</div>
+
+			
 
 			{/* Floating WhatsApp Button */}
 			<button

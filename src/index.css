@@ -106,6 +106,15 @@
 		font-family: "Merriweather", serif;
 	}
 
+	/* Gradient Text */
+	.gradient-text{
+		@apply bg-gradient-to-tr from-red-100 via-[#4DA8DA] to-yellow-100 bg-clip-text text-transparent
+	}
+
+	.gr-text{
+		@apply  bg-gradient-to-tr from-gray-100 via-[#4DA8DA] to-gray-100 bg-clip-text text-transparent
+	}
+
 	/* Smooth scrolling */
 	html {
 		scroll-behavior: smooth;
@@ -562,7 +571,7 @@ textarea:focus {
 	--stone-50: #fafaf9;
 	--stone-800: #292524;
 	--yellow-400: #facc15;
-
+	
 	font-size: 1rem;
 	cursor: pointer;
 	position: relative;

@@ -1,9 +1,17 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const AboutSection = () => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+	// Scroll-based exit animation
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start end", "end start"],
+	});
+	const fadeOut = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
+	const slideUp = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
 
 	const containerVariants = {
 		hidden: {},
@@ -37,10 +45,37 @@ const AboutSection = () => {
 		hover: { scale: 1.03, boxShadow: "0 8px 32px 0 rgba(34, 139, 230, 0.15)" },
 	};
 
+	const listContainerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.7,
+			},
+		},
+	};
+	const listItemVariants = {
+		hidden: { opacity: 0, y: 40 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 1.7,
+				type: "spring" as const,
+				stiffness: 60,
+				damping: 18,
+			},
+		},
+	};
+
 	return (
-		<section id="about" className="py-20 bg-white">
+		<motion.section
+			id="about"
+			ref={ref}
+			style={{ opacity: fadeOut, y: slideUp }}
+			className="py-20 bg-white"
+		>
 			<div className="container mx-auto px-4">
-				<div className="grid lg:grid-cols-2 gap-16 justify-center" ref={ref}>
+				<div className="grid lg:grid-cols-2 gap-16 justify-center">
 					<motion.div
 						initial="hidden"
 						animate={isInView ? "visible" : "hidden"}
@@ -51,7 +86,7 @@ const AboutSection = () => {
 							className="text-4xl md:text-5xl font-poppins font-bold text-edukids-dark mb-6"
 							variants={headingVariants}
 						>
-							<span className="text-edukids-blue">About</span> Happy Bright Kids
+							<span className="gradient-text">About</span> Happy Bright Kids
 							School
 						</motion.h2>
 						<motion.p
@@ -74,7 +109,7 @@ const AboutSection = () => {
 								className=" list-disc pl-6 space-y-2 text-gray-700 text-lg"
 								initial="hidden"
 								animate={isInView ? "visible" : "hidden"}
-								variants={containerVariants}
+								variants={listContainerVariants}
 							>
 								{[
 									"Individual Attention.",
@@ -82,7 +117,7 @@ const AboutSection = () => {
 									"Flexible Timings.",
 									"Free study materials.",
 								].map((point, idx) => (
-									<motion.li key={idx} variants={infoVariants}>
+									<motion.li key={idx} variants={listItemVariants}>
 										{point}
 									</motion.li>
 								))}
@@ -110,7 +145,7 @@ const AboutSection = () => {
 					</motion.div>
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
