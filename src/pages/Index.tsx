@@ -9,15 +9,35 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import AdmissionForm from "@/components/AdmissionForm";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import { useRef } from "react";
+import { useScroll, useTransform } from "framer-motion";
 
 const Index = () => {
+	const scrollContainerRef = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: scrollContainerRef,
+		offset: ["start start", "end start"],
+	});
+
+	const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+	const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+	const blur = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
+	const filter = useTransform(blur, (v) => `blur(${v}px)`);
+
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen bg-white">
 			<Navbar />
-			<HeroSection />
-			<AboutSection />
+			<div ref={scrollContainerRef} className="relative h-[200vh]">
+				<HeroSection scale={scale} opacity={opacity} filter={filter} />
+				<div className="absolute top-[100vh] left-0 right-0">
+					<AboutSection />
+				</div>
+			</div>
 			{/**   <WhyChooseUs /> */}
-			<ProgramsSection />
+
+			<div className=" sticky">
+				<ProgramsSection />
+			</div>
 			<TeachersSection />
 			<GallerySection />
 			<TestimonialsSection />

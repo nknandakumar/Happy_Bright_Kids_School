@@ -1,7 +1,20 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 
 const TeachersSection = () => {
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkScreenSize = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+
+		checkScreenSize();
+		window.addEventListener("resize", checkScreenSize);
+
+		return () => window.removeEventListener("resize", checkScreenSize);
+	}, []);
+
 	const teachers = [
 		{
 			name: "Savitha S",
@@ -52,6 +65,48 @@ const TeachersSection = () => {
 			transition: {
 				duration: 1,
 			},
+		},
+	};
+
+	// New animation variants for teacher cards
+	const cardContainerVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.3,
+				delayChildren: 0.2,
+			},
+		},
+	};
+
+	const cardVariants = {
+		hidden: {
+			opacity: 0,
+			y: 50,
+			scale: 0.95,
+			rotateX: -15,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			rotateX: 0,
+		},
+	};
+
+	// Different animation for mobile (slower, more dramatic)
+	const mobileCardVariants = {
+		hidden: {
+			opacity: 0,
+			y: 80,
+			scale: 0.9,
+			rotateY: -10,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			rotateY: 0,
 		},
 	};
 
@@ -118,8 +173,13 @@ const TeachersSection = () => {
 					</motion.h2>
 				</motion.div>
 
-				{/* Responsive Horizontal Cards */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start justify-start  gap-8 md:pt-10 ">
+				{/* Responsive Horizontal Cards with Staggered Animation */}
+				<motion.div
+					initial="hidden"
+					animate={isInView ? "visible" : "hidden"}
+					variants={cardContainerVariants}
+					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start justify-start gap-8 md:pt-10"
+				>
 					{getOrderedTeachers().map((teacher, index) => {
 						// For large screens, set founder to center using order classes
 						let orderClass = "";
@@ -130,10 +190,36 @@ const TeachersSection = () => {
 						} else if (index === 2) {
 							orderClass = "lg:order-3";
 						}
+
+						// Calculate custom delay for staggered effect
+						let customDelay = 0;
+						if (teacher.isFounder) {
+							customDelay = 0.4; // Center card (founder) appears first
+						} else if (index === 1) {
+							customDelay = 0.7; // First card appears second
+						} else if (index === 2) {
+							customDelay = 1.0; // Third card appears last
+						}
+
 						return (
-							<div
+							<motion.div
 								key={index}
 								className={`teacher-card rounded-3xl p-6 flex flex-col items-start md:items-center h-auto md:h-56 justify-center gap-6 w-full ${orderClass}`}
+								variants={isMobile ? mobileCardVariants : cardVariants}
+								initial="hidden"
+								animate={isInView ? "visible" : "hidden"}
+								transition={{
+									delay: customDelay,
+									duration: isMobile ? 1.2 : 0.8,
+									ease: "easeOut",
+									type: "spring",
+									stiffness: isMobile ? 80 : 100,
+									damping: isMobile ? 20 : 15,
+								}}
+								whileHover={{
+									scale: 1.02,
+									transition: { duration: 0.2 },
+								}}
 							>
 								<img
 									src={teacher.image}
@@ -149,10 +235,10 @@ const TeachersSection = () => {
 										{teacher.role ? teacher.role : "\u00A0"}
 									</p>
 								</div>
-							</div>
+							</motion.div>
 						);
 					})}
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

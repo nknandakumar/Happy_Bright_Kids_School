@@ -62,8 +62,6 @@ const AboutSection = () => {
 							childhood education in a nurturing environment.
 						</motion.p>
 
-						
-
 						{/* Why Choose Us Section */}
 						<motion.div className=" w-full" variants={infoVariants}>
 							<motion.h3
