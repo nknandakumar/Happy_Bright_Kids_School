@@ -72,10 +72,10 @@ const AboutSection = () => {
 			id="about"
 			ref={ref}
 			// style={{ opacity: fadeOut, y: slideUp }}
-			className="py-20 bg-white"
+			className="bg-white pb-24"
 		>
-			<div className="container mx-auto px-4">
-				<div className="grid lg:grid-cols-2 gap-16 justify-center">
+			<div className="container pt-8 pb-10 mx-auto mb-20 px-2 sm:px-4">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 justify-center items-center overflow-visible">
 					<motion.div
 						initial="hidden"
 						animate={isInView ? "visible" : "hidden"}
@@ -126,7 +126,7 @@ const AboutSection = () => {
 					</motion.div>
 
 					<motion.div
-						className="relative"
+						className="relative flex justify-center items-center w-full mb-8 aspect-[4/3] overflow-visible"
 						initial="hidden"
 						animate={isInView ? "visible" : "hidden"}
 						variants={imageVariants}
@@ -135,15 +135,12 @@ const AboutSection = () => {
 						<img
 							src="https://media.istockphoto.com/id/1151224308/photo/teachers-with-children-learning-at-preschool.jpg?s=2048x2048&w=is&k=20&c=3KinZJMC0pLCQAVU9RB0Jt2mDUDAoKLq-Rqw3c6WLSE="
 							alt="Happy children learning at our school"
-							className="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
+							className="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full h-auto object-cover"
 							loading="lazy"
 						/>
-
-						{/* Decorative Elements */}
-						<div className="absolute -top-4 -right-4 w-20 h-20 bg-edukids-yellow rounded-full opacity-20 animate-pulse"></div>
-						<div className="absolute -bottom-4 -left-4 w-16 h-16 bg-edukids-purple rounded-full opacity-20 animate-bounce"></div>
 					</motion.div>
 				</div>
+
 			</div>
 		</motion.section>
 	);

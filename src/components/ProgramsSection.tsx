@@ -221,7 +221,7 @@ const ProgramsSection = () => {
 			id="programs"
 			ref={ref}
 			// style={{ opacity: fadeIn, y: slideUp }}
-			className="py-20 bg-[#E3E9E9] rounded-t-3xl "
+			className="py-20 bg-[#E3E9E9] "
 		>
 			<div className="container mx-auto  px-4">
 				<motion.div

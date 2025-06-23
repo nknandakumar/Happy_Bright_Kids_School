@@ -33,13 +33,13 @@ const Index = () => {
 				
 				<div className="relative">
 				<img src="/clouds.svg" alt="" />
-					<div className="sticky top-0 z-10 bg-white shadow-sm  transition-all duration-300">
+					<div className="sticky top-0 z-10 pb-20 bg-white shadow-sm  transition-all duration-300">
 						<AboutSection />
-						<img src="/clouds.svg" alt="" />
+						
 					</div>
 					
-					<div className="relative z-20">
-						<img src="/rocket.svg" alt="rocket image" className=" -mb-9	 md:-mb-40"  />
+					<div className="relative mt-40 z-20">
+						<img src="/rocket.svg" alt="rocket image" className=" -mb-9 mt-40	 md:-mb-40"  />
 						<img src="/wave.svg" alt="rocket smoke" className="-mt-20 md:-mt-96  "/>
 						<ProgramsSection />
 					</div>

@@ -216,7 +216,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 				</motion.div>
 
 				{/* Main Content */}
-				<div className="container mx-auto px-4 pt-20 pb-0 flex-1 flex flex-col items-center justify-center">
+				<div className="container h-[100vh] mx-auto px-4 pt-20 pb-0 flex-1 flex flex-col items-center justify-center">
 					<motion.div
 						className="flex flex-col items-center justify-center h-full"
 						variants={containerVariants}
@@ -224,7 +224,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 						animate="visible"
 					>
 						{/* Content */}
-						<div className="space-y-8 text-center max-w-3xl">
+						<div className="space-y-8 text-center mt-20 max-w-3xl">
 							<div className="space-y-4">
 								{/* Main Heading - "Welcome to" from top, "Happy Bright Kids" from bottom */}
 								<h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bolder text-black leading-tight">
