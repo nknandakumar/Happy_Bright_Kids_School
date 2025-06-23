@@ -77,12 +77,12 @@ const ProgramsSection = () => {
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	// Scroll-based entrance animation
-	const { scrollYProgress } = useScroll({
-		target: ref,
-		offset: ["start end", "center start"],
-	});
-	const fadeIn = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-	const slideUp = useTransform(scrollYProgress, [0, 0.3], [80, 0]);
+	// const { scrollYProgress } = useScroll({
+	// 	target: ref,
+	// 	offset: ["start end", "center start"],
+	// });
+	// const fadeIn = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+	// const slideUp = useTransform(scrollYProgress, [0, 0.3], [80, 0]);
 
 	const containerVariants = {
 		hidden: {},
@@ -220,10 +220,10 @@ const ProgramsSection = () => {
 		<motion.section
 			id="programs"
 			ref={ref}
-			style={{ opacity: fadeIn, y: slideUp }}
-			className="py-20 bg-edukids-gray rounded-t-3xl border-t-8 border-gray-200 "
+			// style={{ opacity: fadeIn, y: slideUp }}
+			className="py-20 bg-[#E3E9E9] rounded-t-3xl "
 		>
-			<div className="container mx-auto px-4">
+			<div className="container mx-auto  px-4">
 				<motion.div
 					initial="hidden"
 					animate={isInView ? "visible" : "hidden"}
@@ -264,9 +264,9 @@ const ProgramsSection = () => {
 						<motion.div
 							key={index}
 							variants={gridItemVariants}
-							className="sticky top-10 flex flex-col items-center justify-start rounded-3xl p-6 overflow-visible group min-h-[370px] bg-[#F4F4F4]"
+							className="sticky top-10 flex flex-col items-center justify-start rounded-3xl p-6 overflow-visible group min-h-[370px] bg-[#F4F4F4]  border-b-8 border-gray-200 rounded-b-2xl shadow-sm"
 						>
-							<div className="flex flex-col border-b-8 border-gray-200 rounded-b-2xl shadow-sm pb-4  md:items-center">
+							<div className="flex flex-col pb-4  md:items-center">
 								<div className="relative flex  mb-6">
 									<img
 										src={program.image}

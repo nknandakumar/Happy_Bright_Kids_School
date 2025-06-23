@@ -30,11 +30,17 @@ const Index = () => {
 			<div ref={scrollContainerRef} className="relative">
 				<HeroSection scale={scale} opacity={opacity} filter={filter} />
 				{/* Sticky About + Stacking Programs */}
+				
 				<div className="relative">
+				<img src="/clouds.svg" alt="" />
 					<div className="sticky top-0 z-10 bg-white shadow-sm  transition-all duration-300">
 						<AboutSection />
+						<img src="/clouds.svg" alt="" />
 					</div>
+					
 					<div className="relative z-20">
+						<img src="/rocket.svg" alt="rocket image" className=" -mb-9	 md:-mb-40"  />
+						<img src="/wave.svg" alt="rocket smoke" className="-mt-20 md:-mt-96  "/>
 						<ProgramsSection />
 					</div>
 				</div>

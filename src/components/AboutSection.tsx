@@ -6,12 +6,12 @@ const AboutSection = () => {
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
 
 	// Scroll-based exit animation
-	const { scrollYProgress } = useScroll({
-		target: ref,
-		offset: ["start end", "end start"],
-	});
-	const fadeOut = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
-	const slideUp = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
+	// const { scrollYProgress } = useScroll({
+	// 	target: ref,
+	// 	offset: ["start end", "end start"],
+	// });
+	// const fadeOut = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
+	// const slideUp = useTransform(scrollYProgress, [0.7, 1], [0, -80]);
 
 	const containerVariants = {
 		hidden: {},
@@ -71,7 +71,7 @@ const AboutSection = () => {
 		<motion.section
 			id="about"
 			ref={ref}
-			style={{ opacity: fadeOut, y: slideUp }}
+			// style={{ opacity: fadeOut, y: slideUp }}
 			className="py-20 bg-white"
 		>
 			<div className="container mx-auto px-4">

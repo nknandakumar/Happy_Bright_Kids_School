@@ -42,7 +42,7 @@ const Navbar = () => {
 				{/* Logo or Site Name */}
 				<a
 					href="/"
-					className=" text-xl md:text-2xl font-bold text-black font-poppins"
+					className=" text-xl md:text-2xl font-bold uppercase gradient-text font-poppins"
 					onClick={(e) => handleNavClick(e, "#home")}
 				>
 					Happy Bright Kids
