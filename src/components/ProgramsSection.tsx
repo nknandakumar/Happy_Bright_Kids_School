@@ -159,7 +159,7 @@ const ProgramsSection = () => {
 					stiffness: 90,
 					damping: 18,
 				}}
-				className="sticky top-0 bg-[#F4F4F4] rounded-3xl p-6  border-b-8 border-gray-200 shadow-lg min-h-[370px] flex flex-col items-center"
+				className="sticky top-0 bg-[#F4F4F4]  rounded-3xl p-6  border-b-8 border-gray-200 shadow-lg min-h-[370px] flex flex-col items-center"
 				style={{ zIndex: isInView ? 10 : 5 }}
 			>
 				<div className="flex flex-col items-center">
@@ -306,6 +306,7 @@ const ProgramsSection = () => {
 					</button>
 				</div>
 			</div>
+			
 		</motion.section>
 	);
 };

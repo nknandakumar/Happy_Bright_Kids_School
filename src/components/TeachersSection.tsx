@@ -113,7 +113,7 @@ const TeachersSection = () => {
 	return (
 		<section
 			id="teachers"
-			className="py-20  bg-gray-50 relative overflow-hidden"
+			className="pt-20  bg-gray-50 relative overflow-hidden"
 		>
 			{/* SVG Background */}
 			<div className="absolute inset-0 w-full h-full -z-10">
@@ -239,6 +239,7 @@ const TeachersSection = () => {
 					})}
 				</motion.div>
 			</div>
+			<img src="/waves2.svg" alt="" />
 		</section>
 	);
 };

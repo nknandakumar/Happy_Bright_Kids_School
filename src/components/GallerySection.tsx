@@ -146,7 +146,7 @@ const GallerySection = () => {
 	// Card component for reuse
 	const GalleryCard = (item: (typeof galleryItems)[0]) => (
 		<div
-			className="group/card relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer w-[280px] h-[220px] md:w-[340px] md:h-[260px] lg:w-[440px] lg:h-[300px] flex-shrink-0"
+			className="group/card relative overflow-hidden rounded-2xl shadow-xl  shadow-blue-50 transition-all duration-300 cursor-pointer w-[280px] h-[220px] md:w-[340px] md:h-[260px] lg:w-[440px] lg:h-[300px] flex-shrink-0"
 			onClick={() => openMedia(item.src, item.type)}
 		>
 			<img
@@ -173,7 +173,7 @@ const GallerySection = () => {
 	};
 
 	return (
-		<section id="gallery" className="py-20 bg-white">
+		<section id="gallery" className="py-20 bg-white ">
 			<div className=" ">
 				<motion.div
 					ref={headingContainerRef}
@@ -215,7 +215,7 @@ const GallerySection = () => {
 					</motion.div>
 
 					{/* Photos Marquee */}
-					<motion.div variants={marqueeItemVariants} className="relative">
+					<motion.div variants={marqueeItemVariants} className="relative ">
 						<Marquee reverse pauseOnHover className="[--duration:40s]">
 							{images.map((item, i) => (
 								<GalleryCard key={i} {...item} />
@@ -226,7 +226,7 @@ const GallerySection = () => {
 					</motion.div>
 
 					{/* Mixed Marquee */}
-					<motion.div variants={marqueeItemVariants} className="relative">
+					<motion.div variants={marqueeItemVariants} className="relative ">
 						<Marquee pauseOnHover className="[--duration:40s]">
 							{galleryItems.map((item, i) => (
 								<GalleryCard key={i} {...item} />
