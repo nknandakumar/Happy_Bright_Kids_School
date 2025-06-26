@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -87,8 +87,18 @@ const galleryItems = [
 	},
 ];
 
+// Helper to get WebP version of a Cloudinary image
+function getWebpUrl(url: string) {
+	if (url.endsWith(".webp")) return url;
+	return url.replace(/\.(jpg|jpeg|png|gif)$/i, ".webp");
+}
+
 const GalleryAll = () => {
 	const navigate = useNavigate();
+	const [selectedImage, setSelectedImage] = useState<null | {
+		src: string;
+		alt: string;
+	}>(null);
 
 	const containerVariants = {
 		hidden: {},
@@ -129,16 +139,36 @@ const GalleryAll = () => {
 					<motion.div
 						key={idx}
 						variants={cardVariants}
-						className="rounded-xl shadow-lg overflow-hidden bg-gray-50 flex flex-col items-center justify-center p-2"
+						className="rounded-xl shadow-lg overflow-hidden bg-gray-50 items-center justify-center p-2"
 						style={{ minHeight: 260, minWidth: 260, maxWidth: 400 }}
 					>
 						{item.type === "image" ? (
-							<img
-								src={item.src}
-								alt={item.alt}
-								className="object-cover w-full h-60 rounded-lg mb-2"
-								style={{ maxHeight: 240 }}
-							/>
+							<picture
+								onClick={() =>
+									setSelectedImage({ src: item.src, alt: item.alt })
+								}
+								style={{ cursor: "zoom-in" }}
+							>
+								<source srcSet={getWebpUrl(item.src)} type="image/webp" />
+								<source
+									srcSet={item.src}
+									type={item.src.endsWith(".png") ? "image/png" : "image/jpeg"}
+								/>
+								<img
+									src={item.src}
+									alt={item.alt}
+									className="object-cover w-full h-full  rounded-lg mb-2"
+									style={{ maxHeight: 240 }}
+									loading="lazy"
+									width={400}
+									height={240}
+									srcSet={`
+										${item.src.replace("/upload/", "/upload/w_400/")} 400w,
+										${item.src.replace("/upload/", "/upload/w_800/")} 800w
+									`}
+									sizes="(max-width: 768px) 100vw, 400px"
+								/>
+							</picture>
 						) : (
 							<video
 								controls
@@ -152,6 +182,48 @@ const GalleryAll = () => {
 					</motion.div>
 				))}
 			</motion.div>
+
+			{/* Modal for full image view */}
+			{selectedImage && (
+				<div
+					className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+					onClick={() => setSelectedImage(null)}
+				>
+					<div
+						className="relative max-w-3xl w-full flex flex-col items-center"
+						onClick={(e) => e.stopPropagation()}
+					>
+						<button
+							onClick={() => setSelectedImage(null)}
+							className="absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:bg-gray-200 focus:outline-none"
+							aria-label="Close full image"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								strokeWidth={2}
+								stroke="currentColor"
+								className="w-6 h-6 text-gray-700"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</button>
+						<img
+							src={selectedImage.src}
+							alt={selectedImage.alt}
+							className="rounded-lg max-h-[80vh] w-auto object-contain bg-white"
+						/>
+						<p className="mt-2 text-white text-center text-lg font-medium drop-shadow-lg">
+							{selectedImage.alt}
+						</p>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };

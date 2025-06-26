@@ -44,7 +44,8 @@ const ProgramsSection = () => {
 			age: "5 - 6 years",
 			timing: "9:30 AM to 4:30 PM (7hr)",
 			description: "",
-			image: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961772/UKG_thumbnail_ippzym.png",
+			image:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961772/UKG_thumbnail_ippzym.png",
 			bgColor: "bg-edukids-teal",
 		},
 	];
@@ -103,6 +104,12 @@ const ProgramsSection = () => {
 			},
 		},
 	};
+
+	// Helper to get WebP version of a Cloudinary image
+	function getWebpUrl(url: string) {
+		if (url.endsWith(".webp")) return url;
+		return url.replace(/\.(jpg|jpeg|png|gif)$/i, ".webp");
+	}
 
 	// Card stacking style for mobile
 	function getCardMotion(index: number) {
@@ -164,12 +171,33 @@ const ProgramsSection = () => {
 			>
 				<div className="flex flex-col items-center">
 					<div className="relative flex mb-6">
-						<img
-							src={program.image}
-							alt={`Child in ${program.name} program`}
-							className="w-full h-full object-contain"
-							loading="lazy"
-						/>
+						<picture>
+							<source
+								srcSet={getWebpUrl(program.image)}
+								type={
+									program.image.endsWith(".webp") ? "image/webp" : "image/webp"
+								}
+							/>
+							<source
+								srcSet={program.image}
+								type={
+									program.image.endsWith(".png") ? "image/png" : "image/jpeg"
+								}
+							/>
+							<img
+								src={program.image}
+								alt={`Child in ${program.name} program`}
+								className="w-full h-full object-contain"
+								loading="lazy"
+								width={320}
+								height={240}
+								srcSet={`
+									${program.image.replace("/upload/", "/upload/w_320/")} 320w,
+									${program.image.replace("/upload/", "/upload/w_640/")} 640w
+								`}
+								sizes="(max-width: 768px) 100vw, 320px"
+							/>
+						</picture>
 					</div>
 					<div className="text-center flex flex-col space-y-4 ">
 						<h3 className="text-5xl font-poppins font-bold gr-text mb-2  w-full">
@@ -268,12 +296,37 @@ const ProgramsSection = () => {
 						>
 							<div className="flex flex-col pb-4  md:items-center">
 								<div className="relative flex  mb-6">
-									<img
-										src={program.image}
-										alt={`Child in ${program.name} program`}
-										className="w-full h-full object-contain"
-										loading="lazy"
-									/>
+									<picture>
+										<source
+											srcSet={getWebpUrl(program.image)}
+											type={
+												program.image.endsWith(".webp")
+													? "image/webp"
+													: "image/webp"
+											}
+										/>
+										<source
+											srcSet={program.image}
+											type={
+												program.image.endsWith(".png")
+													? "image/png"
+													: "image/jpeg"
+											}
+										/>
+										<img
+											src={program.image}
+											alt={`Child in ${program.name} program`}
+											className="w-full h-full object-contain"
+											loading="lazy"
+											width={440}
+											height={300}
+											srcSet={`
+												${program.image.replace("/upload/", "/upload/w_400/")} 400w,
+												${program.image.replace("/upload/", "/upload/w_800/")} 800w
+											`}
+											sizes="(max-width: 1024px) 100vw, 440px"
+										/>
+									</picture>
 								</div>
 								<div className="text-left md:text-center flex flex-col space-y-4 ">
 									<h3 className="text-5xl font-poppins font-bold gr-text mb-2  w-full">
@@ -306,7 +359,6 @@ const ProgramsSection = () => {
 					</button>
 				</div>
 			</div>
-			
 		</motion.section>
 	);
 };

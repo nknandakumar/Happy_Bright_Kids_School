@@ -9,73 +9,80 @@ const GallerySection = () => {
 
 	const galleryItems = [
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750872652/school_uoibme.jpg",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750872652/school_uoibme.jpg",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750866968/WhatsApp_Video_2025-06-10_at_14.37.13_382906d6_vbayyc.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750867145/video3th_yuuojw.png",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750866968/WhatsApp_Video_2025-06-10_at_14.37.13_382906d6_vbayyc.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750867145/video3th_yuuojw.png",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750956923/krishna_gjlnn4.webp",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750956923/krishna_gjlnn4.webp",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750868340/schoolReOpen_axumwn.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750870327/schoolReOpen_jzqv6i.png",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750868340/schoolReOpen_axumwn.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750870327/schoolReOpen_jzqv6i.png",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750954586/kidsToysThumbnail_lxf7un.jpg",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750954586/kidsToysThumbnail_lxf7un.jpg",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750954822/Teaching2_yoqmrb.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750955007/Teaching2Thumbnail_nwmwdd.png",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750954822/Teaching2_yoqmrb.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750955007/Teaching2Thumbnail_nwmwdd.png",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750956923/fashionShow_rhyi80.webp",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750956923/fashionShow_rhyi80.webp",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750871781/gp2_sdzklx.jpg",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750871781/gp2_sdzklx.jpg",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750954588/KidsToysPlaying_eoycio.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750954586/kidsToysThumbnail_lxf7un.jpg",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750954588/KidsToysPlaying_eoycio.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750954586/kidsToysThumbnail_lxf7un.jpg",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750872289/teaching_airwrj.jpg",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750872289/teaching_airwrj.jpg",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750868913/WhatsApp_Video_2025-06-25_at_21.55.29_e1f9a526_ge8ycp.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750869064/WhatsApp_Image_2025-06-25_at_22.00.43_521ce9f7_wgvemg.jpg",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750868913/WhatsApp_Video_2025-06-25_at_21.55.29_e1f9a526_ge8ycp.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750869064/WhatsApp_Image_2025-06-25_at_22.00.43_521ce9f7_wgvemg.jpg",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750958817/girlskids_tjscit.jpg",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750958817/girlskids_tjscit.jpg",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750863914/MyNameisTanya_nzdgg4.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750864415/WhatsApp_Image_2025-06-25_at_20.43.11_bd2f328b_tuf1el.jpg",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750863914/MyNameisTanya_nzdgg4.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750864415/WhatsApp_Image_2025-06-25_at_20.43.11_bd2f328b_tuf1el.jpg",
 		},
 		{
-		  type: "video" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750863913/happyholy_gkbq3x.mp4",
-		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750866856/Screenshot_2025-06-25_212319_suvyj1.png",
+			type: "video" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750863913/happyholy_gkbq3x.mp4",
+			thumbnail:
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750866856/Screenshot_2025-06-25_212319_suvyj1.png",
 		},
 		{
-		  type: "image" as const,
-		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750867521/groupPhoto1_jevxii.jpg",
+			type: "image" as const,
+			src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750867521/groupPhoto1_jevxii.jpg",
 		},
-	  ];
+	];
 
 	const videos = galleryItems.filter((item) => item.type === "video");
 	const images = galleryItems.filter((item) => item.type === "image");
@@ -129,18 +136,61 @@ const GallerySection = () => {
 		},
 	};
 
+	// Helper to get WebP version of a Cloudinary image
+	function getWebpUrl(url: string) {
+		if (url.endsWith(".webp")) return url;
+		return url.replace(/\.(jpg|jpeg|png|gif)$/i, ".webp");
+	}
+
 	// Card component for reuse
 	const GalleryCard = (item: (typeof galleryItems)[0]) => (
 		<div
 			className="group/card relative overflow-hidden rounded-2xl shadow-xl  shadow-blue-50 transition-all duration-300 cursor-pointer w-[280px] h-[220px] md:w-[340px] md:h-[260px] lg:w-[440px] lg:h-[300px] flex-shrink-0"
 			onClick={() => openMedia(item.src, item.type)}
 		>
-			<img
-				src={item.type === "video" ? item.thumbnail : item.src}
-				alt={item.alt}
-				className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
-				loading="lazy"
-			/>
+			{item.type === "image" ? (
+				<picture>
+					<source srcSet={getWebpUrl(item.src)} type="image/webp" />
+					<source
+						srcSet={item.src}
+						type={item.src.endsWith(".png") ? "image/png" : "image/jpeg"}
+					/>
+					<img
+						src={item.src}
+						alt="Gallery image"
+						className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
+						loading="lazy"
+						width={440}
+						height={300}
+						srcSet={`
+						${item.src.replace("/upload/", "/upload/w_400/")} 400w,
+						${item.src.replace("/upload/", "/upload/w_800/")} 800w
+					`}
+						sizes="(max-width: 768px) 100vw, 440px"
+					/>
+				</picture>
+			) : (
+				<picture>
+					<source srcSet={getWebpUrl(item.thumbnail!)} type="image/webp" />
+					<source
+						srcSet={item.thumbnail}
+						type={item.thumbnail?.endsWith(".png") ? "image/png" : "image/jpeg"}
+					/>
+					<img
+						src={item.thumbnail}
+						alt="Video thumbnail"
+						className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
+						loading="lazy"
+						width={440}
+						height={300}
+						srcSet={`
+						${item.thumbnail?.replace("/upload/", "/upload/w_400/")} 400w,
+						${item.thumbnail?.replace("/upload/", "/upload/w_800/")} 800w
+					`}
+						sizes="(max-width: 768px) 100vw, 440px"
+					/>
+				</picture>
+			)}
 			{item.type === "video" && (
 				<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">
 					{/* Pulse animation behind play button */}

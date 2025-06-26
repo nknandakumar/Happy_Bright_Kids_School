@@ -4,16 +4,19 @@ import AboutSection from "@/components/AboutSection";
 //import WhyChooseUs from "@/components/WhyChooseUs";
 
 import TeachersSection from "@/components/TeachersSection";
-import GallerySection from "@/components/GallerySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import AdmissionForm from "@/components/AdmissionForm";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigationType } from "react-router-dom";
+import React from "react";
+
+const GallerySection = React.lazy(() => import("@/components/GallerySection"));
+const TestimonialsSection = React.lazy(
+	() => import("@/components/TestimonialsSection")
+);
+const AdmissionForm = React.lazy(() => import("@/components/AdmissionForm"));
+const ContactSection = React.lazy(() => import("@/components/ContactSection"));
+const Footer = React.lazy(() => import("@/components/Footer"));
 
 const Index = () => {
 	const scrollContainerRef = useRef(null);
@@ -28,9 +31,10 @@ const Index = () => {
 	const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
 	const location = useLocation();
+	const navigationType = useNavigationType();
 
 	useEffect(() => {
-		if (location.hash) {
+		if (location.hash && navigationType === "PUSH") {
 			const id = location.hash.replace("#", "");
 			const el = document.getElementById(id);
 			if (el) {
@@ -39,7 +43,7 @@ const Index = () => {
 				}, 100); // slight delay to ensure DOM is ready
 			}
 		}
-	}, [location]);
+	}, [location, navigationType]);
 
 	return (
 		<div className="min-h-screen bg-white">

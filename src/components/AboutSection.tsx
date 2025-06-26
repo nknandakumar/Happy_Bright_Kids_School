@@ -1,6 +1,13 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import ProgramsSection from "@/components/ProgramsSection";
+
+// Helper to get WebP version of a Cloudinary image
+function getWebpUrl(url: string) {
+	if (url.endsWith(".webp")) return url;
+	return url.replace(/\.(jpg|jpeg|png|gif)$/i, ".webp");
+}
+
 const AboutSection = () => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -133,12 +140,31 @@ const AboutSection = () => {
 							variants={imageVariants}
 							whileHover="hove"
 						>
-							<img
-								src="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750962454/1750962404277_ztv5w0.jpg"
-								alt="Happy children learning at our school"
-								className="rounded-2xl   w-full h-auto object-cover"
-								loading="lazy"
-							/>
+							<picture>
+								<source
+									srcSet={getWebpUrl(
+										"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750962454/1750962404277_ztv5w0.jpg"
+									)}
+									type="image/webp"
+								/>
+								<source
+									srcSet="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750962454/1750962404277_ztv5w0.jpg"
+									type="image/jpeg"
+								/>
+								<img
+									src="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750962454/1750962404277_ztv5w0.jpg"
+									alt="Happy children learning at our school"
+									className="rounded-2xl   w-full h-auto object-cover"
+									loading="lazy"
+									width={800}
+									height={600}
+									srcSet={`
+										https://res.cloudinary.com/dk1zdm8gz/image/upload/w_400/v1750962454/1750962404277_ztv5w0.jpg 400w,
+										https://res.cloudinary.com/dk1zdm8gz/image/upload/w_800/v1750962454/1750962404277_ztv5w0.jpg 800w
+									`}
+									sizes="(max-width: 768px) 100vw, 800px"
+								/>
+							</picture>
 						</motion.div>
 					</div>
 				</div>
@@ -156,7 +182,6 @@ const AboutSection = () => {
 					className="-mt-20 md:-mt-96  "
 				/>
 				<ProgramsSection />
-		
 			</div>
 		</div>
 	);

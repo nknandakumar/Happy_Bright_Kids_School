@@ -10,6 +10,12 @@ interface HeroSectionProps {
 	filter: MotionValue<string>;
 }
 
+// Helper to get WebP version of a Cloudinary image
+function getWebpUrl(url: string) {
+	if (url.endsWith(".webp")) return url;
+	return url.replace(/\.(jpg|jpeg|png|gif|png)$/i, ".webp");
+}
+
 const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 	const scrollToContact = () => {
 		document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -280,12 +286,33 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 					transition={{ delay: 1.1 }}
 					className="flex justify-center items-end pb-2 md:pb-0 mb-2 md:mb-0"
 				>
-					<img
-						src="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961955/HeroSectionImg_vcgy5j.png"
-						alt="Happy Bright Kids Hero"
-						className="object-cover bg-cover bg-center w-[800px] h-56 md:h-auto md:w-[900px] "
-						style={{ marginBottom: 0, paddingBottom: 0 }}
-					/>
+					<picture>
+						<source
+							srcSet={getWebpUrl(
+								"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961955/HeroSectionImg_vcgy5j.png"
+							)}
+							type="image/webp"
+						/>
+						<source
+							srcSet="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961955/HeroSectionImg_vcgy5j.png"
+							type="image/png"
+						/>
+						<img
+							src="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961955/HeroSectionImg_vcgy5j.png"
+							alt="Happy Bright Kids Hero"
+							className="object-cover bg-cover bg-center w-[800px] h-56 md:h-auto md:w-[900px] "
+							style={{ marginBottom: 0, paddingBottom: 0 }}
+							loading="lazy"
+							width={900}
+							height={400}
+							srcSet={`
+								https://res.cloudinary.com/dk1zdm8gz/image/upload/w_400/v1750961955/HeroSectionImg_vcgy5j.png 400w,
+								https://res.cloudinary.com/dk1zdm8gz/image/upload/w_800/v1750961955/HeroSectionImg_vcgy5j.png 800w,
+								https://res.cloudinary.com/dk1zdm8gz/image/upload/w_1200/v1750961955/HeroSectionImg_vcgy5j.png 1200w
+							`}
+							sizes="(max-width: 900px) 100vw, 900px"
+						/>
+					</picture>
 				</motion.div>
 			</div>
 		</motion.div>
