@@ -46,6 +46,30 @@ const WhyChooseUs = () => {
 		},
 	];
 
+	const teachers = [
+		{
+			name: "Savitha S",
+			role: "Founder, Head Master",
+			image:
+				"https://media.istockphoto.com/id/678420912/photo/portrait-of-an-indian-lady-teacher.jpg?s=2048x2048&w=is&k=20&c=DX5L4J6Et8RR5DCQ7LPU0vK64w_w_ERZd3T7QnHulm8=",
+			isFounder: true,
+		},
+		{
+			name: "Rashmi HR",
+			role: "",
+			image:
+				"https://ik.imagekit.io/6b0su29zd/WhatsApp%20Image%202025-06-24%20at%2019.49.41_75f32417.jpg?updatedAt=1750831831463",
+			isFounder: false,
+		},
+		{
+			name: "Nayana kumari G",
+			role: "",
+			image:
+				"https://ik.imagekit.io/6b0su29zd/WhatsApp%20Image%202025-06-24%20at%2019.49.40_fa3b088f.jpg?updatedAt=1750831831451",
+			isFounder: false,
+		},
+	];
+
 	return (
 		<section className="py-20 bg-gradient-to-br from-edukids-gray to-white">
 			<div className="container mx-auto px-4">

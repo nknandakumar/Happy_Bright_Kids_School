@@ -185,7 +185,7 @@ const ContactSection = () => {
 															Monday - Friday
 														</span>
 														<span className="text-nursery-teal font-bold">
-															8:00 AM - 5:00 PM
+															9:30 AM - 4:00 PM
 														</span>
 													</div>
 													<div className="flex justify-between items-center py-2 border-b border-gray-100">
@@ -193,7 +193,7 @@ const ContactSection = () => {
 															Saturday
 														</span>
 														<span className="text-nursery-teal font-bold">
-															8:00 AM - 1:00 PM
+															9:30 AM - 1:00 PM
 														</span>
 													</div>
 													<div className="flex justify-between items-center py-2">

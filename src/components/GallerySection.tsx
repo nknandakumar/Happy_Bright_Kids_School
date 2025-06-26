@@ -9,87 +9,73 @@ const GallerySection = () => {
 
 	const galleryItems = [
 		{
-			type: "video" as const,
-			src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1749900227/feedback1_cy8qdn.mp4",
-			thumbnail:
-				"https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=600&h=400&fit=crop",
-			alt: "Introduction to Happy Bright Kids School",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750872652/school_uoibme.jpg",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop",
-			alt: "Bright and colorful classroom environment",
-			title: "Our Classrooms",
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750866968/WhatsApp_Video_2025-06-10_at_14.37.13_382906d6_vbayyc.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750867145/video3th_yuuojw.png",
 		},
 		{
-			type: "video" as const,
-			src: "https://www.w3schools.com/html/mov_bbb.mp4",
-			thumbnail:
-				"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=400&fit=crop",
-			alt: "Children learning activities",
-			title: "Learning Activities",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750956923/krishna_gjlnn4.webp",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1439886183900-e79ec0057170?w=600&h=400&fit=crop",
-			alt: "Outdoor play area and nature activities",
-			title: "Outdoor Activities",
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750868340/schoolReOpen_axumwn.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750870327/schoolReOpen_jzqv6i.png",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1501286353178-1ec881214838?w=600&h=400&fit=crop",
-			alt: "Creative art and craft activities",
-			title: "Art & Craft",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750954586/kidsToysThumbnail_lxf7un.jpg",
 		},
 		{
-			type: "video" as const,
-			src: "https://www.w3schools.com/html/movie.mp4",
-			thumbnail:
-				"https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&h=400&fit=crop",
-			alt: "Daily activities and routines",
-			title: "Daily Activities",
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750954822/Teaching2_yoqmrb.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750955007/Teaching2Thumbnail_nwmwdd.png",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&h=400&fit=crop",
-			alt: "Kids painting",
-			title: "Kids Painting",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750956923/fashionShow_rhyi80.webp",
 		},
 		{
-			type: "video" as const,
-			src: "https://www.w3schools.com/html/mov_bbb.mp4",
-			thumbnail:
-				"https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&h=400&fit=crop",
-			alt: "Kids playing",
-			title: "Kids Playing",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750871781/gp2_sdzklx.jpg",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop",
-			alt: "Classroom fun",
-			title: "Classroom Fun",
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750954588/KidsToysPlaying_eoycio.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750954586/kidsToysThumbnail_lxf7un.jpg",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b41?w=600&h=400&fit=crop",
-			alt: "Kids reading",
-			title: "Kids Reading",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750872289/teaching_airwrj.jpg",
 		},
 		{
-			type: "video" as const,
-			src: "https://www.w3schools.com/html/movie.mp4",
-			thumbnail:
-				"https://images.unsplash.com/photo-1465101178521-c1a9136a3b41?w=600&h=400&fit=crop",
-			alt: "Kids dancing",
-			title: "Kids Dancing",
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750868913/WhatsApp_Video_2025-06-25_at_21.55.29_e1f9a526_ge8ycp.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750869064/WhatsApp_Image_2025-06-25_at_22.00.43_521ce9f7_wgvemg.jpg",
 		},
 		{
-			type: "image" as const,
-			src: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&h=400&fit=crop",
-			alt: "Kids drawing",
-			title: "Kids Drawing",
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750958817/girlskids_tjscit.jpg",
 		},
-	];
+		{
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750863914/MyNameisTanya_nzdgg4.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750864415/WhatsApp_Image_2025-06-25_at_20.43.11_bd2f328b_tuf1el.jpg",
+		},
+		{
+		  type: "video" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750863913/happyholy_gkbq3x.mp4",
+		  thumbnail: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750866856/Screenshot_2025-06-25_212319_suvyj1.png",
+		},
+		{
+		  type: "image" as const,
+		  src: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750867521/groupPhoto1_jevxii.jpg",
+		},
+	  ];
 
 	const videos = galleryItems.filter((item) => item.type === "video");
 	const images = galleryItems.filter((item) => item.type === "image");
@@ -235,6 +221,16 @@ const GallerySection = () => {
 						<div className="pointer-events-none absolute inset-y-0 left-0 w-0 bg-gradient-to-r from-white lg:w-1/12"></div>
 						<div className="pointer-events-none absolute inset-y-0 right-0 w-0 bg-gradient-to-l from-white lg:w-1/12"></div>
 					</motion.div>
+
+					{/* More Button */}
+					<div className="flex justify-center mt-8">
+						<a
+							href="/gallery/all"
+							className="px-6 py-3 bg-gradient-to-tr from-red-100 via-[#4DA8DA] to-yellow-100 hover:bg-gradient-to-tr hover:from-yellow-200 hover:via-[#4DA8DA] hover:to-red-200 text-white rounded-lg font-semibold shadow transition-colors duration-200"
+						>
+							Click here for more
+						</a>
+					</div>
 				</motion.div>
 
 				{/* Modal for enlarged media */}

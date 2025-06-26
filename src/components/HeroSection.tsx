@@ -148,10 +148,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 	};
 
 	return (
-		<motion.div
-			style={{ scale, opacity, filter }}
-			className="sticky top-0 h-screen"
-		>
+		<motion.div style={{ scale, opacity, filter }} className="sticky top-0 ">
 			<div
 				id="home"
 				className="hero  relative min-h-screen h-screen bg-gradient-to-r from-pink-50 to-yellow-50 overflow-hidden md:mt-4 flex flex-col justify-between"
@@ -210,13 +207,13 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 					className="floating-element floating-right animate-float-slow"
 					style={{ top: "50%" }}
 				>
-					<div className="w-12 h-12 mt-28 md:w-20 md:h-20 ">
+					<div className="w-12 h-12 mt-16 md:w-20 md:h-20 ">
 						<img src={toy1} alt="toys" />
 					</div>
 				</motion.div>
 
 				{/* Main Content */}
-				<div className="container h-[100vh] mx-auto px-4 pt-20 pb-0 flex-1 flex flex-col items-center justify-center">
+				<div className="container  mx-auto px-4  pb-0 flex-1 flex flex-col items-center justify-center">
 					<motion.div
 						className="flex flex-col items-center justify-center h-full"
 						variants={containerVariants}
@@ -224,7 +221,7 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 						animate="visible"
 					>
 						{/* Content */}
-						<div className="space-y-8 text-center mt-20 max-w-3xl">
+						<div className="space-y-8 text-center mt-4 md:mt-16 max-w-3xl">
 							<div className="space-y-4">
 								{/* Main Heading - "Welcome to" from top, "Happy Bright Kids" from bottom */}
 								<h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bolder text-black leading-tight">
@@ -237,7 +234,6 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 										className="font-poppins  mt-4 text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase bg-gradient-to-tr from-red-200 via-[#4DA8DA] to-yellow-100 bg-clip-text text-transparent    block"
 									>
 										<SparklesText>Happy Bright Kids</SparklesText>
-								
 									</motion.span>
 								</h1>
 
@@ -282,12 +278,12 @@ const HeroSection = ({ scale, opacity, filter }: HeroSectionProps) => {
 					initial="hidden"
 					animate="visible"
 					transition={{ delay: 1.1 }}
-					className="hero-img w-full flex justify-center items-end pb-0 mb-0"
+					className="flex justify-center items-end pb-2 md:pb-0 mb-2 md:mb-0"
 				>
 					<img
-						src="https://ik.imagekit.io/6b0su29zd/Untitled%20design%20(1).png?updatedAt=1749992548639"
+						src="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961955/HeroSectionImg_vcgy5j.png"
 						alt="Happy Bright Kids Hero"
-						className="object-cover bg-cover bg-center w-90 md:w-[600px]"
+						className="object-cover bg-cover bg-center w-[800px] h-56 md:h-auto md:w-[900px] "
 						style={{ marginBottom: 0, paddingBottom: 0 }}
 					/>
 				</motion.div>

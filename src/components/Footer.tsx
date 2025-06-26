@@ -20,12 +20,12 @@ const Footer = () => {
 	return (
 		<footer className="bg-gradient-to-br from-gray-800 to-gray-900  text-white">
 			{/* Main Footer Content */}
-			<div className="container mx-auto  px-4 py-16">
-				<div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-12">
+			<div className="container mx-auto   px-4 py-16">
+				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 					{/* School Info */}
 					<div className="lg:col-span-2">
 						<h3 className="text-3xl font-poppins uppercase font-bold gradient-text mb-4">
-							 <SparklesText>Happy Bright Kids</SparklesText>
+							<SparklesText>Happy Bright Kids</SparklesText>
 						</h3>
 						<p className="text-gray-300 mb-6 leading-relaxed">
 							Nurturing young minds in Shivamogga with quality early childhood
@@ -41,18 +41,17 @@ const Footer = () => {
 									Bavana, Gopala, Shivamogga, Karnataka
 								</span>
 							</div>
-
-							<div className="flex items-center space-x-3">
-								<Phone className="h-5 w-5 text-nursery-teal flex-shrink-0" />
-								<a
-									href="tel:+918050342056"
-									className="text-nursery-yellow hover:text-nursery-orange transition-colors duration-300 font-semibold"
-								>
-									8050342056
-								</a>
-							</div>
 						</div>
+						<div className="flex space-x-4 mt-6">
+							<button className="bg-blue-500  hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 flex items-center space-x-2">
+								<Phone className="h-5 w-5 text-nursery-teal  flex-shrink-0" />
 
+								<a href="tel:+918050342056">
+									<span className="font-semibold animate-pulse">Click here for Call</span>
+								
+								</a>
+							</button>
+						</div>
 						{/* Social Actions */}
 						<div className="flex space-x-4 mt-6">
 							<button
@@ -71,9 +70,8 @@ const Footer = () => {
 						</div>
 					</div>
 
-				<div className="flex gap-20">
-						{/* Quick Links */}
-						<div>
+					{/* Quick Links */}
+					<div>
 						<h4 className="text-xl font-poppins font-bold text-nursery-teal mb-6">
 							Quick Links
 						</h4>
@@ -157,12 +155,14 @@ const Footer = () => {
 							</Button>
 						</div>
 					</div>
-				</div>
+
+					{/* Empty column for symmetry or future use */}
+					<div className="hidden lg:block"></div>
 				</div>
 			</div>
 
 			{/* Bottom Footer */}
-			<div className=" border-gray-700">
+			<div className=" border-gray-700  pb-6">
 				<div className="container mx-auto px-4 py-6">
 					<div className="flex  items-center justify-center">
 						<div className="text-center  md:text-left">
@@ -170,19 +170,20 @@ const Footer = () => {
 								© {currentYear} Happy Bright Kids. All rights reserved.
 							</p>
 						</div>
-						
 					</div>
 				</div>
 			</div>
 
-			<div className="border-t border-gray-700">
-				<div className="container mx-auto px-4 py-6">
-				<p className="text-center text-gray-400">Design & Developed by <a href="" className=" text-gray-50">N Studio</a></p>
+			<div className="border-t  border-gray-700">
+				<div className="container mx-auto px-4  py-6">
+					<p className="text-center text-gray-400">
+						Design & Developed by{" "}
+						<a href="" className=" text-gray-50">
+							N Studio
+						</a>
+					</p>
 				</div>
-				
-				</div>
-
-			
+			</div>
 
 			{/* Floating WhatsApp Button */}
 			<button

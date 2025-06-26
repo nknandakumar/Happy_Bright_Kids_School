@@ -9,7 +9,7 @@ const ProgramsSection = () => {
 			timing: "9:00 AM to 7:00 PM (10hr)",
 			description: "",
 			image:
-				"https://anuchiaai.com/wp-content/uploads/2019/06/guide-to-choose-preschool-for-your-kids.jpg.webp",
+				"https://ik.imagekit.io/6b0su29zd/Untitled%20design%20(8).png?updatedAt=1750860690673",
 			bgColor: "bg-edukids-blue",
 		},
 		{
@@ -18,7 +18,7 @@ const ProgramsSection = () => {
 			timing: "9:30 AM to 3:00 PM (5.5hr)",
 			description: "",
 			image:
-				"https://holt-website-wpoffload.s3.us-west-2.amazonaws.com/wp-content/uploads/2019/01/HLT9891-e1548265670524.jpeg",
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961847/HLT9891-e1548265670524_jsobnj.jpg",
 			bgColor: "bg-edukids-teal",
 		},
 		{
@@ -27,7 +27,7 @@ const ProgramsSection = () => {
 			timing: "9:30 AM to 4:30 PM (7hr)",
 			description: "",
 			image:
-				"https://media.istockphoto.com/id/589961490/photo/children-playing-with-colorful-blocks-building-a-block-tower.jpg?s=2048x2048&w=is&k=20&c=WR-WMt2OSWqaZLFaPHE717z8RGHBIcjQabQYiR0mIO8=",
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961636/Nursery_thumbnail_bammgt.png",
 			bgColor: "bg-edukids-yellow",
 		},
 		{
@@ -36,7 +36,7 @@ const ProgramsSection = () => {
 			timing: "9:30 AM to 4:30 PM (7hr)",
 			description: "",
 			image:
-				"https://cambridgemontessoriglobal.org/wp-content/uploads/2018/10/1.jpg",
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961636/UKG_Thunbnail_lf1kkj.png",
 			bgColor: "bg-edukids-blue",
 		},
 		{
@@ -44,7 +44,7 @@ const ProgramsSection = () => {
 			age: "5 - 6 years",
 			timing: "9:30 AM to 4:30 PM (7hr)",
 			description: "",
-			image: "https://www.bachpanglobal.com/img/Contact-mobile.webp",
+			image: "https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750961772/UKG_thumbnail_ippzym.png",
 			bgColor: "bg-edukids-teal",
 		},
 	];
@@ -159,7 +159,7 @@ const ProgramsSection = () => {
 					stiffness: 90,
 					damping: 18,
 				}}
-				className="sticky top-0 bg-[#F4F4F4]  rounded-3xl p-6  border-b-8 border-gray-200 shadow-lg min-h-[370px] flex flex-col items-center"
+				className="sticky top-0 bg-[#E3E9E9]  rounded-b-3xl p-6  border-b-8 border-gray-300  min-h-[370px] flex flex-col items-center"
 				style={{ zIndex: isInView ? 10 : 5 }}
 			>
 				<div className="flex flex-col items-center">
@@ -264,7 +264,7 @@ const ProgramsSection = () => {
 						<motion.div
 							key={index}
 							variants={gridItemVariants}
-							className="sticky top-10 flex flex-col items-center justify-start rounded-3xl p-6 overflow-visible group min-h-[370px] bg-[#F4F4F4]  border-b-8 border-gray-200 rounded-b-2xl shadow-sm"
+							className="sticky top-10 flex flex-col items-center justify-start rounded-3xl p-6 overflow-visible group min-h-[370px] bg-[#E3E9E9]   border-b-8 border-gray-300 rounded-b-2xl shadow-sm"
 						>
 							<div className="flex flex-col pb-4  md:items-center">
 								<div className="relative flex  mb-6">

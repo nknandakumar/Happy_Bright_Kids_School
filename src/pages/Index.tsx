@@ -12,6 +12,8 @@ import Footer from "@/components/Footer";
 
 import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Index = () => {
 	const scrollContainerRef = useRef(null);
@@ -25,6 +27,20 @@ const Index = () => {
 	const blur = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
 	const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.hash) {
+			const id = location.hash.replace("#", "");
+			const el = document.getElementById(id);
+			if (el) {
+				setTimeout(() => {
+					el.scrollIntoView({ behavior: "smooth" });
+				}, 100); // slight delay to ensure DOM is ready
+			}
+		}
+	}, [location]);
+
 	return (
 		<div className="min-h-screen bg-white">
 			<Navbar />
@@ -32,8 +48,12 @@ const Index = () => {
 				<HeroSection scale={scale} opacity={opacity} filter={filter} />
 				{/* Sticky About + Stacking Programs */}
 
-				<div className="relative">
-					<img src="/clouds.svg" alt="" />
+				<div className="relative mt-40">
+					<img
+						src="/clouds.svg"
+						alt="clouds"
+						className=" w-[800px] md:w-full"
+					/>
 					<div className="sticky top-0 z-10 bg-white  transition-all duration-300">
 						<AboutSection />
 					</div>
@@ -42,13 +62,12 @@ const Index = () => {
 			{/**   <WhyChooseUs /> */}
 			<img src="/waves.svg" alt="waves image" className="" />
 			<TeachersSection />
-		
+
 			<GallerySection />
 			<TestimonialsSection />
 			<AdmissionForm />
 			<ContactSection />
 			<Footer />
-	
 		</div>
 	);
 };

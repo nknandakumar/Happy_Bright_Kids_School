@@ -132,7 +132,7 @@ const TestimonialsSection = () => {
 										<div className="w-full aspect-[14/8] flex-shrink-0 relative">
 											{playingIndex === index ? (
 												<video
-													className="w-full h-full object-cover rounded-b-none"
+													className="w-full h-[500px] object-cover rounded-b-none"
 													controls
 													autoPlay
 													src={testimonial.videoUrl}
@@ -148,7 +148,7 @@ const TestimonialsSection = () => {
 													<img
 														src={testimonial.videoThumbnail}
 														alt={`${testimonial.name}'s testimonial`}
-														className="w-full h-full object-cover rounded-t-2xl rounded-b-none transition-transform duration-500 group-hover:scale-110"
+														className="w-full h-[500px] object-cover rounded-t-2xl rounded-b-none transition-transform duration-500 group-hover:scale-110"
 														style={{ objectPosition: "center" }}
 													/>
 													<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">

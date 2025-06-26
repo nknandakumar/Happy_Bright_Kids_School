@@ -68,14 +68,14 @@ const AboutSection = () => {
 	};
 
 	return (
-		<div className="relative flex flex-col gap-96 ">
+		<div className="relative flex flex-col gap-10 ">
 			<motion.section
 				id="about"
 				ref={ref}
 				// style={{ opacity: fadeOut, y: slideUp }}
 				className="bg-white sticky top-0 pb-4"
 			>
-				<div className="container pt-8 pb-20 mx-auto mb-20 px-2 sm:px-4">
+				<div className="container pt-8 pb-10 mx-auto mb-20 px-2 sm:px-4">
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 justify-center items-center overflow-visible">
 						<motion.div
 							initial="hidden"
@@ -131,12 +131,12 @@ const AboutSection = () => {
 							initial="hidden"
 							animate={isInView ? "visible" : "hidden"}
 							variants={imageVariants}
-							whileHover="hover"
+							whileHover="hove"
 						>
 							<img
-								src="https://media.istockphoto.com/id/1151224308/photo/teachers-with-children-learning-at-preschool.jpg?s=2048x2048&w=is&k=20&c=3KinZJMC0pLCQAVU9RB0Jt2mDUDAoKLq-Rqw3c6WLSE="
+								src="https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750962454/1750962404277_ztv5w0.jpg"
 								alt="Happy children learning at our school"
-								className="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full h-auto object-cover"
+								className="rounded-2xl   w-full h-auto object-cover"
 								loading="lazy"
 							/>
 						</motion.div>
