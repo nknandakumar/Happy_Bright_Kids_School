@@ -123,7 +123,7 @@ const GalleryAll = () => {
 			{/* Breadcrumbs and Back Button */}
 			<div className="flex flex-col md:flex-row items-start md:items-center  justify-between mb-8 gap-4">
 				<button
-					onClick={() => navigate("/#gallery")}
+					onClick={() => navigate("/", { state: { scrollToGallery: true } })}
 					className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold shadow transition-colors duration-200"
 				>
 					← Back

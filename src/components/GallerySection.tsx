@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Play } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import Marquee from "@/components/magicui/marquee";
+import { Link } from "react-router-dom";
 
 const GallerySection = () => {
 	const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
@@ -274,12 +275,12 @@ const GallerySection = () => {
 
 					{/* More Button */}
 					<div className="flex justify-center mt-8">
-						<a
-							href="/gallery/all"
+						<Link 
+							to={"/gallery/all"}
 							className="px-6 py-3 bg-gradient-to-tr from-red-100 via-[#4DA8DA] to-yellow-100 hover:bg-gradient-to-tr hover:from-yellow-200 hover:via-[#4DA8DA] hover:to-red-200 text-white rounded-lg font-semibold shadow transition-colors duration-200"
 						>
 							Click here for more
-						</a>
+						</Link>
 					</div>
 				</motion.div>
 

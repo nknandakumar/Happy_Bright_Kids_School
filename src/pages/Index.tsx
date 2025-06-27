@@ -45,6 +45,17 @@ const Index = () => {
 		}
 	}, [location, navigationType]);
 
+	useEffect(() => {
+		if (location.state?.scrollToGallery) {
+			const gallerySection = document.getElementById("gallery");
+			if (gallerySection) {
+				gallerySection.scrollIntoView({ behavior: "smooth" });
+			}
+			// Clear the state so it doesn't scroll again on refresh
+			window.history.replaceState({}, document.title);
+		}
+	}, [location.state]);
+
 	return (
 		<div className="min-h-screen bg-white">
 			<Navbar />
