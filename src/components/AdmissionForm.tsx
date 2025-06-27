@@ -34,25 +34,25 @@ const AdmissionForm = () => {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 
-		// Create WhatsApp message
+		// Create WhatsApp message (structured, from parent's perspective)
 		const message = `
-🌟 *Admission Enquiry - Happy Bright Kids School* 🌟
+🌟 Admission Enquiry for My Child 🌟
 
-👶 *Child Details:*
-Name: ${formData.childName}
-Age: ${formData.childAge} years
-Program: ${formData.program}
+👶 Child Details:
+• Name: ${formData.childName || "N/A"}
+• Age: ${formData.childAge || "N/A"} years
+• Program: ${formData.program || "N/A"}
 
-👨‍👩‍👧‍👦 *Parent Details:*
-Name: ${formData.parentName}
-Email: ${formData.email}
-Phone: ${formData.phone}
+👨‍👩‍👧‍👦 Parent Details:
+• Name: ${formData.parentName || "N/A"}
+• Email: ${formData.email || "N/A"}
+• Phone: ${formData.phone || "N/A"}
 
-💬 *Message:*
+💬 Message:
 ${formData.message || "No additional message"}
 
-Please contact us for admission details!
-    `.trim();
+I am interested in enrolling my child at Happy Bright Kids School. Please let me know the next steps. Thank you!
+		`.trim();
 
 		const whatsappUrl = `https://wa.me/918050342056?text=${encodeURIComponent(
 			message

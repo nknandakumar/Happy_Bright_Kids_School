@@ -303,6 +303,7 @@ const GallerySection = () => {
 								<img
 									src={selectedMedia}
 									alt="Enlarged gallery image"
+									loading="lazy"
 									className="w-full h-full object-contain rounded-lg"
 								/>
 							)}
