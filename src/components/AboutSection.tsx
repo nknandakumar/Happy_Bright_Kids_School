@@ -101,8 +101,7 @@ const AboutSection = () => {
 								className="text-lg text-gray-600 mb-6 leading-relaxed"
 								variants={infoVariants}
 							>
-								Located in Shivamogga, Karnataka, we provide exceptional early
-								childhood education in a nurturing environment.
+								Happy Bright Kids School is a  preschool located in Shivamogga, Karnataka, dedicated to providing a joyful and enriching early learning experience. Our nurturing environment, experienced educators, and play-based curriculum help children in Nursery, LKG, and UKG build strong academic and social foundations.
 							</motion.p>
 
 							{/* Why Choose Us Section */}
@@ -134,7 +133,7 @@ const AboutSection = () => {
 						</motion.div>
 
 						<motion.div
-							className="relative flex justify-center items-center w-full mb-8 aspect-[4/3] overflow-visible"
+							className="relative  md:flex justify-center items-center w-full mb-8 aspect-[4/3] overflow-y-auto"
 							initial="hidden"
 							animate={isInView ? "visible" : "hidden"}
 							variants={imageVariants}

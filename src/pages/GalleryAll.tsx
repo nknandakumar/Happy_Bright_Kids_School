@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 
 const galleryItems = [
 	{
@@ -154,10 +155,10 @@ const GalleryAll = () => {
 									srcSet={item.src}
 									type={item.src.endsWith(".png") ? "image/png" : "image/jpeg"}
 								/>
-								<img
+								<SkeletonImage
 									src={item.src}
 									alt={item.alt}
-									className="object-cover w-full h-full  rounded-lg mb-2"
+									className="object-cover w-full h-full rounded-lg mb-2"
 									style={{ maxHeight: 240 }}
 									loading="lazy"
 									width={400}
@@ -213,7 +214,7 @@ const GalleryAll = () => {
 								/>
 							</svg>
 						</button>
-						<img
+						<SkeletonImage
 							src={selectedImage.src}
 							alt={selectedImage.alt}
 							className="rounded-lg max-h-[80vh] w-auto object-contain bg-white"

@@ -3,6 +3,7 @@ import { Play } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import Marquee from "@/components/magicui/marquee";
 import { Link } from "react-router-dom";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 
 const GallerySection = () => {
 	const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
@@ -150,47 +151,33 @@ const GallerySection = () => {
 			onClick={() => openMedia(item.src, item.type)}
 		>
 			{item.type === "image" ? (
-				<picture>
-					<source srcSet={getWebpUrl(item.src)} type="image/webp" />
-					<source
-						srcSet={item.src}
-						type={item.src.endsWith(".png") ? "image/png" : "image/jpeg"}
-					/>
-					<img
-						src={item.src}
-						alt="Gallery image"
-						className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
-						loading="lazy"
-						width={440}
-						height={300}
-						srcSet={`
+				<SkeletonImage
+					src={item.src}
+					alt="Gallery image"
+					className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
+					loading="lazy"
+					width={440}
+					height={300}
+					srcSet={`
 						${item.src.replace("/upload/", "/upload/w_400/")} 400w,
 						${item.src.replace("/upload/", "/upload/w_800/")} 800w
 					`}
-						sizes="(max-width: 768px) 100vw, 440px"
-					/>
-				</picture>
+					sizes="(max-width: 768px) 100vw, 440px"
+				/>
 			) : (
-				<picture>
-					<source srcSet={getWebpUrl(item.thumbnail!)} type="image/webp" />
-					<source
-						srcSet={item.thumbnail}
-						type={item.thumbnail?.endsWith(".png") ? "image/png" : "image/jpeg"}
-					/>
-					<img
-						src={item.thumbnail}
-						alt="Video thumbnail"
-						className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
-						loading="lazy"
-						width={440}
-						height={300}
-						srcSet={`
+				<SkeletonImage
+					src={item.thumbnail!}
+					alt="Video thumbnail"
+					className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover/card:scale-110"
+					loading="lazy"
+					width={440}
+					height={300}
+					srcSet={`
 						${item.thumbnail?.replace("/upload/", "/upload/w_400/")} 400w,
 						${item.thumbnail?.replace("/upload/", "/upload/w_800/")} 800w
 					`}
-						sizes="(max-width: 768px) 100vw, 440px"
-					/>
-				</picture>
+					sizes="(max-width: 768px) 100vw, 440px"
+				/>
 			)}
 			{item.type === "video" && (
 				<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">
@@ -275,7 +262,7 @@ const GallerySection = () => {
 
 					{/* More Button */}
 					<div className="flex justify-center mt-8">
-						<Link 
+						<Link
 							to={"/gallery/all"}
 							className="px-6 py-3 bg-gradient-to-tr from-red-100 via-[#4DA8DA] to-yellow-100 hover:bg-gradient-to-tr hover:from-yellow-200 hover:via-[#4DA8DA] hover:to-red-200 text-white rounded-lg font-semibold shadow transition-colors duration-200"
 						>
@@ -300,11 +287,11 @@ const GallerySection = () => {
 									allowFullScreen
 								/>
 							) : (
-								<img
+								<SkeletonImage
 									src={selectedMedia}
 									alt="Enlarged gallery image"
-									loading="lazy"
 									className="w-full h-full object-contain rounded-lg"
+									loading="lazy"
 								/>
 							)}
 							<button

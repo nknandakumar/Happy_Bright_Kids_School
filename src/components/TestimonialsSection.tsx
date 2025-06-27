@@ -5,6 +5,8 @@ import CountUp from "./ui/CountUp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import SkeletonImage from "@/components/ui/SkeletonImage";
+import SwiperClass from "swiper";
 
 const testimonials = [
 	{
@@ -12,7 +14,7 @@ const testimonials = [
 		role: "Mother of Maharshi dev",
 		rating: 5,
 		videoThumbnail:
-			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750588612/FeedbackThumbnail1_hj3i6y.png",
+			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1751042291/feedback1_laqype.png",
 		videoUrl:
 			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1749900227/feedback1_cy8qdn.mp4",
 	},
@@ -21,7 +23,7 @@ const testimonials = [
 		role: "Mother of Artha",
 		rating: 5,
 		videoThumbnail:
-			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750588611/FeedbackThumbnail2_njmmet.png",
+			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1751042291/feedback2_rknz6m.png",
 		videoUrl:
 			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750587161/feedback2.mp4",
 	},
@@ -38,7 +40,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
 	const [playingIndex, setPlayingIndex] = useState<number | null>(null);
-	const [swiperRef, setSwiperRef] = useState<any>(null);
+	const [swiperRef, setSwiperRef] = useState<SwiperClass | null>(null);
 	const [current, setCurrent] = useState(0);
 
 	// Responsive slides per view
@@ -145,11 +147,14 @@ const TestimonialsSection = () => {
 													className="group relative rounded-t-2xl cursor-pointer overflow-hidden w-full h-full"
 													onClick={() => setPlayingIndex(index)}
 												>
-													<img
+													<SkeletonImage
 														src={testimonial.videoThumbnail}
 														alt={`${testimonial.name}'s testimonial`}
 														className="w-full h-[500px] object-cover rounded-t-2xl rounded-b-none transition-transform duration-500 group-hover:scale-110"
 														style={{ objectPosition: "center" }}
+														width={500}
+														height={500}
+														loading="lazy"
 													/>
 													<div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/card:bg-black/30 transition-colors duration-300">
 														{/* Pulse animation behind play button */}

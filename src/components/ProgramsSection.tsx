@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import SkeletonImage from "@/components/ui/SkeletonImage";
 
 const ProgramsSection = () => {
 	const programs = [
@@ -171,33 +172,19 @@ const ProgramsSection = () => {
 			>
 				<div className="flex flex-col items-center">
 					<div className="relative flex mb-6">
-						<picture>
-							<source
-								srcSet={getWebpUrl(program.image)}
-								type={
-									program.image.endsWith(".webp") ? "image/webp" : "image/webp"
-								}
-							/>
-							<source
-								srcSet={program.image}
-								type={
-									program.image.endsWith(".png") ? "image/png" : "image/jpeg"
-								}
-							/>
-							<img
-								src={program.image}
-								alt={`Child in ${program.name} program`}
-								className="w-full h-full object-contain"
-								loading="lazy"
-								width={320}
-								height={240}
-								srcSet={`
-									${program.image.replace("/upload/", "/upload/w_320/")} 320w,
-									${program.image.replace("/upload/", "/upload/w_640/")} 640w
-								`}
-								sizes="(max-width: 768px) 100vw, 320px"
-							/>
-						</picture>
+						<SkeletonImage
+							src={program.image}
+							alt={`Child in ${program.name} program`}
+							className="w-full h-full object-contain"
+							loading="lazy"
+							width={320}
+							height={240}
+							srcSet={`
+								${program.image.replace("/upload/", "/upload/w_320/")} 320w,
+								${program.image.replace("/upload/", "/upload/w_640/")} 640w
+							`}
+							sizes="(max-width: 768px) 100vw, 320px"
+						/>
 					</div>
 					<div className="text-center flex flex-col space-y-4 ">
 						<h3 className="text-5xl font-poppins font-bold gr-text mb-2  w-full">
@@ -296,37 +283,19 @@ const ProgramsSection = () => {
 						>
 							<div className="flex flex-col pb-4  md:items-center">
 								<div className="relative flex  mb-6">
-									<picture>
-										<source
-											srcSet={getWebpUrl(program.image)}
-											type={
-												program.image.endsWith(".webp")
-													? "image/webp"
-													: "image/webp"
-											}
-										/>
-										<source
-											srcSet={program.image}
-											type={
-												program.image.endsWith(".png")
-													? "image/png"
-													: "image/jpeg"
-											}
-										/>
-										<img
-											src={program.image}
-											alt={`Child in ${program.name} program`}
-											className="w-full h-full object-contain"
-											loading="lazy"
-											width={440}
-											height={300}
-											srcSet={`
-												${program.image.replace("/upload/", "/upload/w_400/")} 400w,
-												${program.image.replace("/upload/", "/upload/w_800/")} 800w
-											`}
-											sizes="(max-width: 1024px) 100vw, 440px"
-										/>
-									</picture>
+									<SkeletonImage
+										src={program.image}
+										alt={`Child in ${program.name} program`}
+										className="w-full h-full object-contain"
+										loading="lazy"
+										width={440}
+										height={300}
+										srcSet={`
+											${program.image.replace("/upload/", "/upload/w_400/")} 400w,
+											${program.image.replace("/upload/", "/upload/w_800/")} 800w
+										`}
+										sizes="(max-width: 1024px) 100vw, 440px"
+									/>
 								</div>
 								<div className="text-left md:text-center flex flex-col space-y-4 ">
 									<h3 className="text-5xl font-poppins font-bold gr-text mb-2  w-full">
