@@ -10,7 +10,7 @@ const ProgramsSection = () => {
 			timing: "9:00 AM to 7:00 PM (10hr)",
 			description: "",
 			image:
-				"https://ik.imagekit.io/6b0su29zd/Untitled%20design%20(8).png?updatedAt=1750860690673",
+				"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1751098692/daycareTH_e39ljn.png",
 			bgColor: "bg-edukids-blue",
 		},
 		{
