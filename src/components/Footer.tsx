@@ -174,7 +174,7 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div className="border-t  border-gray-700">
+			<div className="border-t hidden  border-gray-700">
 				<div className="container mx-auto px-4  py-6">
 					<p className="text-center text-gray-400">
 						Design & Developed by{" "}
