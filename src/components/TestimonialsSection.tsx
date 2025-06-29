@@ -27,15 +27,7 @@ const testimonials = [
 		videoUrl:
 			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750587161/feedback2.mp4",
 	},
-	{
-		name: "Preethi Shenoy",
-		role: "Mother of Twins (Nursery)",
-		rating: 4,
-		videoThumbnail:
-			"https://res.cloudinary.com/dk1zdm8gz/image/upload/v1750588611/FeedbackThumbnail2_njmmet.png",
-		videoUrl:
-			"https://res.cloudinary.com/dk1zdm8gz/video/upload/v1750587162/feedback3.mp4",
-	},
+
 ];
 
 const TestimonialsSection = () => {
